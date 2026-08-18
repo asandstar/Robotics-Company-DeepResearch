@@ -1,7 +1,7 @@
 # Sunday Robotics 深度研究报告 v1.0 审计
 
 审计日期：2026-07-18  
-审计对象：`sunday_robotics_research_report.html`  
+审计对象：`Sunday.html`
 目标版本：v1.1 Evidence Audit and Technical Deep Dive  
 审计方式：完整读取当前 HTML；解析 DOM 锚点、正文引用、图片、CSS 与 JavaScript；对 17 个外部来源 URL 做可达性/元数据抽查。本轮未修改 HTML、未移动文件、未创建前端实现。
 
@@ -260,7 +260,7 @@ v1.1 的 demo 审核单位应是“一个可定位的原始视频或一次 trial
 
 ```text
 src/
-  sunday_robotics_research_report.html
+  Sunday.html
 assets/
   css/report.css
   js/report.js
@@ -282,7 +282,7 @@ scripts/
   validate-report.*
   build-single-file.*
 dist/
-  sunday_robotics_research_report.html
+  Sunday.html
 ```
 
 约束与构建策略：

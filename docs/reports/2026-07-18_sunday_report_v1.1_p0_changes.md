@@ -1,7 +1,7 @@
 # Sunday Robotics 报告 v1.1 Phase A：P0 Evidence Corrections
 
 日期：2026-07-18
-基线：`sunday_robotics_research_report.html` v1.0
+基线：`Sunday.html` v1.0
 范围：仅修复 P0 事实、数字、来源类型和证据边界；未拆分单文件、未移动资源、未重构布局或 JavaScript。
 
 ## 1. 结果概览
