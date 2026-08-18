@@ -1,32 +1,38 @@
-# Sunday Robotics Deep Research
+# Sunday Robotics 深度研究专题
 
-A static, interactive deep-research report on major robotics companies and industry dynamics, with one-click deployable GitHub Pages setup.
+这是一个面向关注 Sunday Robotics、家庭机器人与具身智能的读者制作的公开研究网页。项目不只是整理公司信息，也尝试回答几个更重要的问题：Sunday 为什么把真实世界数据视为家庭机器人的核心瓶颈，它如何把人类示范转化为机器人技能，以及目前公开证据究竟能够支持多强的技术判断。
 
-Project description (for GitHub/About section):
+## 阅读入口
 
-- Topic tags: robotics, robotics-company, deep-research, github-pages, interactive-report
-- Maintainer note: 中文版本内容为主，页面内嵌样式与资源，适合长期归档与共享。
+- [专题主页](https://asandstar.github.io/Robotics-Company-DeepResearch/)：项目的简明入口，适合第一次访问的读者。
+- [完整研究报告](https://asandstar.github.io/Robotics-Company-DeepResearch/Sunday.html)：直接进入交互式长篇报告。
+- [GitHub 仓库](https://github.com/asandstar/Robotics-Company-DeepResearch)：查看页面源码、版本记录与后续更新。
 
-## 本地预览
+## 网页包含什么
 
-直接打开 `index.html`，或在仓库根目录启动任意静态文件服务器，例如：
+报告以 Sunday Robotics 与其家庭机器人 Memo 为中心，覆盖公司与创始团队背景、研究谱系、机器人本体、Memory Glove、Memory Developer，以及从示范采集、数据清洗、策略训练到部署评测的完整技术闭环。
 
-```bash
-python3 -m http.server 8000
-```
+能力分析部分进一步讨论透明物体感知、衣物等柔性物体操作、接触与力控、任务被打断后的恢复、跨家庭场景泛化和家庭安全，并梳理 Diffusion Policy、ACT-1、ACT-2 与 Sunday 技术路线之间的关系。页面也收录关键指标、失败类型、研究问题池、术语表和可追溯参考资料。
 
-然后访问 <http://localhost:8000>。
+## 报告如何组织
 
-## 部署到 GitHub Pages
+全文按照四层结构展开：
 
-1. 将代码推送到 GitHub 仓库的 `main` 分支。
-2. 在仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。
-3. 打开 **Actions** 页面，等待 `Deploy GitHub Pages` 工作流完成。
+1. **背景与证据**：执行摘要、证据规则、公司档案与创始人的研究谱系。
+2. **系统与产品**：Sunday 的全栈数据闭环、Memo 本体、Memory Glove 和 Memory Developer。
+3. **能力与难点**：透明物体、柔性物体、力控、失败恢复、泛化、安全与学习策略。
+4. **判断与跟踪**：逐项区分公司声明、论文结果、第三方材料和研究推断，并整理尚未得到回答的问题。
 
-部署后的默认地址为：
+报告特别强调证据边界。官方披露可以证明公司作出过某项声明，但不自动等同于第三方验证；内部评测结果也会与适用任务、样本范围和测试条件一起阅读。
 
-```text
-https://<github-username>.github.io/<repository-name>/
-```
+## 后续更新计划
 
-工作流会把 `index.html` 作为网站主页发布，`Sunday.html` 作为完整报告页发布。主页为面向读者的专题入口，点击即可进入交互式报告，不会出现跳转空白体验。报告使用内嵌样式、脚本、字体和图片，不需要额外安装依赖或执行前端构建。
+本项目会随着 Sunday 的公开进展持续维护，重点包括：
+
+- 跟踪 Memo 家庭 Beta、量产时间表、价格与硬件规格变化；
+- 补充 ACT 系列、Diffusion Policy、UMI 等相关论文和技术资料；
+- 记录新的演示、评测协议、失败案例与第三方独立验证；
+- 完善公司融资、团队、合作伙伴及家庭机器人竞争格局；
+- 持续校正失效链接、数据口径和已经过时的判断。
+
+当前报告为持续更新版，重要改动会通过 Git 提交记录保留，方便读者追踪结论如何随新证据变化。
