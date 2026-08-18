@@ -29,4 +29,4 @@ python3 -m http.server 8000
 https://<github-username>.github.io/<repository-name>/
 ```
 
-工作流会把 `Sunday.html` 作为发布站点的根页面 `index.html`，因此线上访问不会发生二次跳转。报告使用内嵌样式、脚本、字体和图片，不需要额外安装依赖或执行前端构建。
+工作流会把 `index.html` 作为网站主页发布，`Sunday.html` 作为完整报告页发布。主页为面向读者的专题入口，点击即可进入交互式报告，不会出现跳转空白体验。报告使用内嵌样式、脚本、字体和图片，不需要额外安装依赖或执行前端构建。

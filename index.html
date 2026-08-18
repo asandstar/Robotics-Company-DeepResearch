@@ -3,13 +3,141 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./Sunday.html">
-  <title>Sunday Robotics 深度研究报告</title>
-  <script>
-    window.location.replace('./Sunday.html' + window.location.hash);
-  </script>
+  <title>Sunday 机器人研究专题站</title>
+  <meta name="description" content="为关注 Sunday 及相关机器人研究的读者准备的交互式研究网页。">
+  <style>
+    :root {
+      --bg: radial-gradient(1200px 600px at 10% 0%, #f2f7ff, #fdfbf5 48%, #eef7f1);
+      --card: #ffffff;
+      --text: #152238;
+      --muted: #556176;
+      --accent: #1454ff;
+      --accent-soft: #dbe8ff;
+      --shadow: 0 18px 40px rgba(20, 24, 45, 0.12);
+      --radius: 20px;
+      font-family: 'Trebuchet MS', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      padding: 32px 20px 48px;
+    }
+
+    .wrap {
+      width: min(920px, 100%);
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero,
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      border: 1px solid #dde6ff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 14px 0 0;
+    }
+
+    .cta {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      background: var(--accent);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      display: inline-block;
+      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 20px rgba(20, 84, 255, .2);
+    }
+
+    a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(20, 84, 255, .28);
+    }
+
+    .muted-link {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid #bfd0ff;
+      box-shadow: none;
+    }
+
+    .list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .list li {
+      padding: 10px 12px;
+      border-left: 4px solid #1f5bff;
+      background: #f8fbff;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .94rem;
+      padding-bottom: 8px;
+    }
+  </style>
 </head>
 <body>
-  <p>正在打开 <a href="./Sunday.html">Sunday Robotics 深度研究报告</a>…</p>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Sunday 机器人研究专题站</h1>
+      <p>
+        这里汇总了面向 <strong>Sunday</strong> 及相关机器人赛道的深度研究材料：
+        公司竞争格局、关键技术、产业链与趋势判断。面向关心该主题的读者，提供一处可直接阅读和持续更新的公开页面。
+      </p>
+      <div class="cta">
+        <a href="./Sunday.html">进入完整研究报告</a>
+        <a class="muted-link" href="https://github.com/asandstar/Robotics-Company-DeepResearch" target="_blank" rel="noreferrer">查看仓库</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>你可以在这里直接读到什么</h2>
+      <ul class="list">
+        <li>市场结构与公司对比：从技术路线、产业链位置到商业化节奏。</li>
+        <li>关键算法与硬件演进：用于评估技术成熟度的核心指标与案例。</li>
+        <li>可交互展示与注释：用于复盘论证过程的结构化章节。</li>
+      </ul>
+    </section>
+
+    <footer>
+      更新频率：按发布版本更新 · 适配桌面与移动端阅读
+    </footer>
+  </main>
 </body>
 </html>
