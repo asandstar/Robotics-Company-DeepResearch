@@ -1,6 +1,11 @@
 # Sunday Robotics Deep Research
 
-Sunday Robotics 深度研究交互报告，以及可直接部署到 GitHub Pages 的配置。
+A static, interactive deep-research report on major robotics companies and industry dynamics, with one-click deployable GitHub Pages setup.
+
+Project description (for GitHub/About section):
+
+- Topic tags: robotics, robotics-company, deep-research, github-pages, interactive-report
+- Maintainer note: 中文版本内容为主，页面内嵌样式与资源，适合长期归档与共享。
 
 ## 本地预览
 
