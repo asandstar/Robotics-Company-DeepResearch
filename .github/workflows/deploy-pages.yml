@@ -33,6 +33,7 @@ jobs:
           mkdir _site
           cp index.html _site/index.html
           cp Sunday.html _site/Sunday.html
+          cp Dyna.html _site/Dyna.html
           touch _site/.nojekyll
 
       - name: Upload Pages artifact
