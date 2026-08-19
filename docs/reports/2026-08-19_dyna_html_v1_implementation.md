@@ -7,7 +7,7 @@
 
 ## Delivered artifact
 
-- 32 semantic `<section>` elements, including the cover and publication boundary.
+- 36 semantic `<section>` elements, including the four chapter containers, cover and publication boundary.
 - 69 public claims embedded from `data/dyna_claim_registry_v1.csv`.
 - 33 structured sources embedded from `data/dyna_source_registry_v1.csv`.
 - 11 demo/deployment records embedded from `data/dyna_demo_deployment_audit_v1.csv`.
@@ -25,8 +25,16 @@
 - High-importance/high-verification-risk view generated from the embedded registry rather than a manually maintained list; current count: 28.
 - Deployment ledger search and evidence filters.
 - Glossary and source search.
-- Copy-section-link controls, print/PDF mode and back-to-top control.
+- Direct source links on relevant sections and evidence cards, print/PDF mode and back-to-top control.
 - Visible focus states, semantic controls, reduced-motion support and responsive table containers.
+
+## Post-publication visual refinement
+
+- Consolidated the accumulated CSS into one structural foundation, one editorial theme layer and one responsive rule set; duplicate mobile breakpoints and obsolete chapter overrides were removed.
+- Restored explicit grid foundations for two-, three- and four-column cards, filters, detail fields, the scaling ladder, score chart and source list.
+- Added source-bounded research briefs to Data Engine, Three Evidence Stages, WAM and Infrastructure. These briefs distinguish dataset source from supervision, offline prediction from physical execution, training objective from inference behavior, and storage scale from end-to-end systems bottlenecks.
+- Centered metrics, stage selectors and process diagrams selectively while preserving left-aligned long-form reading text.
+- Increased desktop whitespace and normalized mobile padding. Light-theme body, muted and accent text pass WCAG AA contrast checks; visible form boundaries reach 3:1 against white.
 
 ## Evidence safeguards
 
@@ -99,4 +107,4 @@ The browser-control environment exposed no browser instance, so real click, scre
 9. Claim Explorer combined filters, empty-value rendering and long-field wrapping.
 10. Source URLs and page-break behavior in an exported PDF.
 
-No automatic commit or push was performed.
+The report is published from `main` through the repository's GitHub Pages workflow; releases remain subject to human visual review.

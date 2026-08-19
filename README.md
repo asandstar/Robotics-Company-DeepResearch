@@ -30,7 +30,7 @@
 
 主题：家庭机器人、Memory Glove、human demonstration、ACT、Diffusion Policy、deformable manipulation、force control、recovery、generalization、home robot safety。
 
-### [Dyna Robotics](./Dyna.html?v=ui5-20260819)
+### [Dyna Robotics](./Dyna.html?v=ui6-20260819)
 
 **状态：Published — 已有完整研究报告**
 
@@ -85,7 +85,7 @@ docs/reports/                      带日期的审计与版本报告
 .github/workflows/deploy-pages.yml GitHub Pages 发布工作流
 ```
 
-GitHub Pages 发布研究门户、Sunday 报告与 [Dyna 交互式技术尽调报告](./Dyna.html?v=ui5-20260819)。结构化 Dyna registries 与审计底稿继续保留为页面的 source of truth。
+GitHub Pages 发布研究门户、Sunday 报告与 [Dyna 交互式技术尽调报告](./Dyna.html?v=ui6-20260819)。结构化 Dyna registries 与审计底稿继续保留为页面的 source of truth。
 
 ## Update policy
 
