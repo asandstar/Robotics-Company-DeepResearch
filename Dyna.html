@@ -822,7 +822,43 @@
     .claim summary:hover,.demo summary:hover{background:rgba(22,126,120,.055)}
     .source{margin-bottom:10px}
     .source-id,.claim-id{color:var(--cyan);background:rgba(22,126,120,.08)!important;border-color:rgba(22,126,120,.16)!important}
-    .term{border-color:var(--line);background:#fff;box-shadow:none}
+    .glossary-toolbar{
+      display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;margin:20px 0 18px
+    }
+    .glossary-toolbar input{width:100%;min-height:48px;padding-left:16px;border-radius:999px}
+    .glossary-count{color:var(--muted);font-size:.75rem;font-weight:750;white-space:nowrap}
+    .glossary-list{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0;padding:0
+    }
+    .term{
+      --term-accent:var(--cyan);
+      position:relative;display:flex;min-width:0;min-height:178px;flex-direction:column;
+      margin:0;padding:19px 20px 18px;overflow:hidden;border:1px solid var(--line);border-radius:19px;
+      background:linear-gradient(145deg,#fff,rgba(22,126,120,.045));box-shadow:0 7px 20px rgba(39,58,48,.04);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease
+    }
+    .term::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--term-accent),transparent 78%)}
+    .term[data-category="Training"]{--term-accent:var(--blue);background:linear-gradient(145deg,#fff,rgba(66,107,150,.06))}
+    .term[data-category="Evaluation"]{--term-accent:var(--orange);background:linear-gradient(145deg,#fff,rgba(185,108,46,.06))}
+    .term[data-category="Infrastructure"]{--term-accent:var(--lime);background:linear-gradient(145deg,#fff,rgba(110,135,56,.07))}
+    .term[data-category="Evidence"]{--term-accent:var(--red);background:linear-gradient(145deg,#fff,rgba(165,74,66,.055))}
+    .term-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}
+    .term-index{
+      display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:24px;padding:0 7px;
+      border-radius:999px;background:rgba(22,126,120,.07);color:var(--term-accent);font-size:.65rem;font-weight:850;letter-spacing:.08em
+    }
+    .term-category{color:var(--term-accent);font-size:.64rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+    .term dt{
+      margin:0;color:var(--text);font-family:"Iowan Old Style","Noto Serif SC","Songti SC",Georgia,serif;
+      font-size:clamp(1.2rem,2.1vw,1.55rem);font-weight:750;line-height:1.18;letter-spacing:-.01em;overflow-wrap:anywhere
+    }
+    .term dd{margin:11px 0 0;color:var(--muted);font-size:.84rem;line-height:1.75}
+    .term:hover{border-color:var(--term-accent);transform:translateY(-2px);box-shadow:0 12px 26px rgba(39,58,48,.08)}
+    .glossary-empty{grid-column:1/-1;margin:0;padding:28px;text-align:center;border:1px dashed var(--line);border-radius:18px;color:var(--muted)}
+    html[data-theme="dark"] .term{background:linear-gradient(145deg,#1c2521,rgba(101,216,209,.045));border-color:rgba(255,255,255,.1);box-shadow:none}
+    html[data-theme="dark"] .term[data-category="Training"]{background:linear-gradient(145deg,#1c2521,rgba(142,183,255,.055))}
+    html[data-theme="dark"] .term[data-category="Evaluation"]{background:linear-gradient(145deg,#1c2521,rgba(255,180,94,.055))}
+    html[data-theme="dark"] .term[data-category="Infrastructure"]{background:linear-gradient(145deg,#1c2521,rgba(200,241,105,.05))}
+    html[data-theme="dark"] .term[data-category="Evidence"]{background:linear-gradient(145deg,#1c2521,rgba(255,129,120,.05))}
     .backtop{color:#fff;background:#24443a;border-color:rgba(255,255,255,.2);box-shadow:0 12px 28px rgba(27,49,40,.18)}
     :where(a,button,input,select,summary,.term):focus-visible{outline:3px solid rgba(22,126,120,.45);outline-offset:3px}
     @media(max-width:900px){
@@ -852,6 +888,9 @@
       .chapter-map{gap:6px}
       .chapter-map a{font-size:.69rem}
       .g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}
+      .glossary-toolbar{grid-template-columns:1fr;gap:7px}
+      .glossary-count{padding-left:4px}
+      .term{min-height:0;padding:18px}
       .diagram{overflow:auto;padding:12px}
       .diagram svg{min-width:680px}
       .research-figure{overflow:auto}
@@ -861,7 +900,7 @@
       table{min-width:700px}
       .score-chart{height:260px;padding:18px 8px 12px}
     }
-    @media print{:root{--bg:#fff;--panel:#fff;--panel2:#f4f4f4;--text:#111;--muted:#444;--line:#bbb;--lime:#315000;--cyan:#005f5b;color-scheme:light}.topbar,.toc,.progress,.backtop,.copy-link,.filters,.filter-secondary,.filter-btn{display:none!important}.layout{display:block;max-width:none;padding:0}.hero{min-height:auto;padding:24px 0}.section{padding:28px 0;break-before:page}.card,details,.diagram,.table-wrap,.source{break-inside:avoid}details>*{display:block!important}details summary{list-style:none}.claim-list .claim{display:block!important}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8pt;color:#555}h1{font-size:38pt}.score-chart{height:180px}}
+    @media print{:root{--bg:#fff;--panel:#fff;--panel2:#f4f4f4;--text:#111;--muted:#444;--line:#bbb;--lime:#315000;--cyan:#005f5b;color-scheme:light}.topbar,.toc,.progress,.backtop,.copy-link,.filters,.filter-secondary,.filter-btn,.glossary-toolbar{display:none!important}.layout{display:block;max-width:none;padding:0}.hero{min-height:auto;padding:24px 0}.section{padding:28px 0;break-before:page}.card,details,.diagram,.table-wrap,.source,.term{break-inside:avoid}details>*{display:block!important}details summary{list-style:none}.claim-list .claim{display:block!important}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8pt;color:#555}h1{font-size:38pt}.score-chart{height:180px}}
   </style>
 </head>
 <body>
@@ -980,7 +1019,7 @@
 
   <section class="section" id="reviewer" data-title="Reviewer view"><div class="section-head"><span class="num">27</span><h2>If Dyna-2 Were a Conference Submission</h2></div><div class="g2 grid"><div class="card known"><h3>Strengths</h3><ul><li>large-scale controlled internal experiment</li><li>nested datasets</li><li>cross-level evaluation</li><li>useful objective ablations</li><li>unusual systems disclosure</li></ul></div><div class="card unknown"><h3>Major weaknesses</h3><ul><li>no code / weights / corpus</li><li>limited statistical reporting</li><li>four main scaling points</li><li>no compute/model-size scaling</li><li>no independent replication</li><li>limited external baselines</li><li>robot post-training required</li><li>no complete leakage audit</li></ul></div></div><p class="small">不虚构 conference score。基于 Dyna-2 scientific audit v1。</p></section>
 
-  <section class="section" id="glossary" data-title="Glossary"><div class="section-head"><span class="num">28</span><h2>Glossary</h2></div><div class="filters"><input id="glossarySearch" type="search" placeholder="搜索术语" aria-label="搜索研究词典"></div><dl class="glossary-list" id="glossaryList"></dl></section>
+  <section class="section" id="glossary" data-title="Glossary"><div class="section-head"><span class="num">28</span><h2>Glossary</h2></div><p class="lede">术语按模型、训练、评测、基础设施和证据审计分类。英文术语保留，中文定义聚焦本报告中的 robot-learning 语境。</p><div class="glossary-toolbar"><input id="glossarySearch" type="search" placeholder="搜索术语或中文定义…" aria-label="搜索研究词典"><span class="glossary-count" id="glossaryCount" aria-live="polite"></span></div><dl class="glossary-list" id="glossaryList"></dl></section>
 
   <section class="section" id="sources" data-title="Sources"><div class="section-head"><span class="num">29</span><h2>Structured Sources</h2></div><p class="lede">来源来自 <span class="mono">data/dyna_source_registry_v1.csv</span>；公司源证明公司披露过某内容，不自动独立验证其结果。</p><div class="filters"><input id="sourceSearch" type="search" placeholder="搜索 source_id / title / organization / topics" aria-label="搜索来源"><select id="sourceType"><option value="">All source types</option></select></div><p class="count" id="sourceCount"></p><div id="sourceList"></div></section>
 
@@ -1042,7 +1081,9 @@ function renderDemos(){const q=$('#demoSearch').value.toLowerCase(),out=D.filter
 const market=[['pure video','human-video source; pseudo-actions on quality-passing clips','no robot trajectories in disclosed pre-training','no action-like supervision anywhere','High'],['powered entirely by human egocentric video','human-video pre-training + robot post-training','pre-training source is human video','final physical policy uses no robot data','High'],['zero-shot','stage-specific excluded-data boundary','valid only with boundary named','offline prediction equals physical execution','High'],['production-grade','production-oriented internal/customer criteria','design target and selected evidence','safety certification or fleet uptime','High'],['world model','joint future-video/action training','future prediction shapes representation','all stack behavior belongs to Dyna-2','Medium'],['imagines the future, then acts','marketing shorthand; reactive scaling policy','training objective may help action','reported policy plans via imagined rollouts','High'],['human-to-robot scaling law','four human-hour rungs','monotonic company-run trends','universal law over compute/model/robots','High'],['10-minute / 13-minute','source-specific bottle-cap wording','small robot-data example','total engineering time or stable estimate','High'],['14-task / 15-task','later technical report defines 14; earlier release says 15','use 14 as scientific canonical suite','cause of discrepancy is known','High']];$('#marketingRows').innerHTML=market.map(x=>`<tr>${x.map(v=>`<td>${esc(v)}</td>`).join('')}</tr>`).join('');
 const qs={Data:['Publish corpus source mix, licenses, hashes and semantic deduplication audit.','Report action-label yield and hand-pose error by scene/hand/object subgroup.'],WAM:['Compute-match the video-only objective ablation.','Compare reactive action inference with explicit imagined-video planning.'],Scaling:['Release coefficients, residuals, exponent uncertainty and new out-of-sample rung.','Repeat each rung with independent seeds and report compute/tokens.'],'Post-Training':['Publish accepted vs collected robot minutes and total labor per task.','Measure robot-data scaling curves at every pre-training rung.'],'Cross-Embodiment':['Evaluate frozen checkpoints on unrelated kinematics with declared adapters.','Separate representation transfer from embodiment-specific tuning.'],Infrastructure:['Report full run GPU-hours, cold-cache utilization and cost per usable hour.','Publish failure rate, lost-work and recovery-time distributions.'],Deployment:['Release named-site task counts, attempts, runtime and intervention logs.','Separate demo, pilot, paid recurring deployment and customer acceptance.'],Reliability:['Report fleet robot-hours, uptime, MTBF, recovery latency and maintenance.','Publish continuous logs rather than selected recovery clips.'],Safety:['Document limits, E-stop, human detection, hazard analysis and applicable standards.','Report incidents, remote intervention and outage behavior.'],Business:['Disclose deployed robot/customer counts and RaaS unit economics.','Separate company-announced financing from independently reported valuation.']};$('#questionList').innerHTML=Object.entries(qs).map(([k,v])=>`<details><summary>${k}</summary><div class="detail-body"><ol>${v.map(x=>`<li>${x}</li>`).join('')}</ol></div></details>`).join('');
 const glossary={VLA:'Vision-Language-Action model：由视觉与语言条件预测机器人动作。',WAM:'World-Action Model：联合 future-video 与 future-action 目标的模型族。','World Model':'学习环境动态或未来结果的模型；不自动意味着推理时规划。','Future-Video Prediction':'给定已观察上下文预测未来视频的训练目标。','Pseudo-Action':'由人类视频中的 3D 手部估计转换出的腕部轨迹与抓握开合监督。','Flow Matching':'学习把噪声分布连续运输到目标数据分布的生成建模方法。',DiT:'Diffusion Transformer，在扩散/flow 表征上使用 transformer。','Action Chunk':'一次预测的一段未来动作序列。',Proprioception:'机器人对自身关节位置、速度等内部状态的测量。','Cross-Embodiment':'知识或表征跨不同机器人形态/动作空间迁移。','Post-Training':'预训练后用任务或机器人数据继续训练。','Zero-Shot':'在明确排除某类训练/适配数据的条件下评测；边界必须写出。','Offline Evaluation':'在记录数据上预测或打分，不执行物理动作。','Physical Evaluation':'在真实机器人与环境中执行任务。',MCAP:'面向异构时间戳数据的机器人日志容器。',GOP:'视频编码中的关键帧及其依赖帧组，影响压缩与随机访问。',Manifest:'一次训练精确使用的 episode/range/location 列表。',NVMe:'靠近计算节点的高速本地固态存储接口/设备。','Optimizer Sharding':'把 optimizer state/update 分布到多个 rank。','External Corroboration':'外部来源或场景提供部分佐证，不等于复现。','Independent Verification':'独立主体按透明协议检查或复现结果。'};
-function renderGlossary(){const q=$('#glossarySearch').value.toLowerCase();$('#glossaryList').innerHTML=Object.entries(glossary).filter(x=>x.join(' ').toLowerCase().includes(q)).map(([k,v])=>`<div class="term" tabindex="0"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}$('#glossarySearch').oninput=renderGlossary;renderGlossary();
+const glossaryCategories={VLA:'Model',WAM:'Model','World Model':'Model',DiT:'Model','Future-Video Prediction':'Training','Pseudo-Action':'Training','Flow Matching':'Training','Action Chunk':'Training',Proprioception:'Training','Cross-Embodiment':'Training','Post-Training':'Training','Zero-Shot':'Evaluation','Offline Evaluation':'Evaluation','Physical Evaluation':'Evaluation',MCAP:'Infrastructure',GOP:'Infrastructure',Manifest:'Infrastructure',NVMe:'Infrastructure','Optimizer Sharding':'Infrastructure','External Corroboration':'Evidence','Independent Verification':'Evidence'};
+const glossaryCategoryLabels={Model:'模型 / Model',Training:'训练 / Training',Evaluation:'评测 / Evaluation',Infrastructure:'系统 / Infrastructure',Evidence:'证据 / Evidence'};
+function renderGlossary(){const q=$('#glossarySearch').value.trim().toLowerCase(),all=Object.entries(glossary).map(([k,v],i)=>({k,v,n:i+1,cat:glossaryCategories[k]||'Model'})),out=all.filter(x=>`${x.k} ${x.v} ${glossaryCategoryLabels[x.cat]}`.toLowerCase().includes(q));$('#glossaryCount').textContent=`${out.length} / ${all.length} terms`;$('#glossaryList').innerHTML=out.length?out.map(x=>`<div class="term" data-category="${esc(x.cat)}" tabindex="0" aria-label="${esc(x.k)}：${esc(x.v)}"><div class="term-top"><span class="term-index">${String(x.n).padStart(2,'0')}</span><span class="term-category">${esc(glossaryCategoryLabels[x.cat])}</span></div><dt>${esc(x.k)}</dt><dd>${esc(x.v)}</dd></div>`).join(''):'<div class="glossary-empty">没有匹配的术语 / No matching term</div>'}$('#glossarySearch').oninput=renderGlossary;renderGlossary();
 function renderSources(){const q=$('#sourceSearch').value.toLowerCase(),out=S.filter(s=>(!q||[s.source_id,s.title,s.organization,s.topics].join(' ').toLowerCase().includes(q))&&(!$('#sourceType').value||s.source_type===$('#sourceType').value));$('#sourceCount').textContent=`${out.length} / ${S.length} sources`;$('#sourceList').innerHTML=out.map(s=>`<article class="source"><span class="source-id">${esc(s.source_id)}</span><div><b>${esc(s.title)}</b><div class="small">${esc(s.organization)} · ${esc(s.source_type)} · ${esc(val(s.publication_date))}</div><div class="small">Topics: ${esc(val(s.topics))}</div></div><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Open source ↗</a></article>`).join('')}$('#sourceSearch').oninput=renderSources;$('#sourceType').onchange=renderSources;renderSources();
 const sectionSources={
   executive:['DYN-S006'],thesis:['DYN-S010','DYN-S006'],timeline:['DYN-S002'],system:['DYN-S001'],
