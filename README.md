@@ -1,38 +1,106 @@
-# Sunday Robotics 深度研究专题
+# Robotics Company Deep Research
 
-这是一个面向关注 Sunday Robotics、家庭机器人与具身智能的读者制作的公开研究网页。项目不只是整理公司信息，也尝试回答几个更重要的问题：Sunday 为什么把真实世界数据视为家庭机器人的核心瓶颈，它如何把人类示范转化为机器人技能，以及目前公开证据究竟能够支持多强的技术判断。
+一个面向机器人研究人员的长期技术尽调项目。项目选择值得持续关注的机器人公司，系统研究其技术路线、能力证据、部署闭环与尚未解决的问题，而不是复述公司营销材料。
 
-## 阅读入口
+[研究门户](https://asandstar.github.io/Robotics-Company-DeepResearch/) · [GitHub 仓库](https://github.com/asandstar/Robotics-Company-DeepResearch)
 
-- [专题主页](https://asandstar.github.io/Robotics-Company-DeepResearch/)：项目的简明入口，适合第一次访问的读者。
-- [完整研究报告](https://asandstar.github.io/Robotics-Company-DeepResearch/Sunday.html)：直接进入交互式长篇报告。
-- [GitHub 仓库](https://github.com/asandstar/Robotics-Company-DeepResearch)：查看页面源码、版本记录与后续更新。
+## Research scope
 
-## 网页包含什么
+每家公司原则上沿同一组问题展开：
 
-报告以 Sunday Robotics 与其家庭机器人 Memo 为中心，覆盖公司与创始团队背景、研究谱系、机器人本体、Memory Glove、Memory Developer，以及从示范采集、数据清洗、策略训练到部署评测的完整技术闭环。
+- 公司认为行业真正的技术瓶颈是什么；
+- 创始团队、研究谱系与历史能力如何影响路线选择；
+- robot embodiment 如何约束数据、模型和部署；
+- 数据引擎如何采集、清洗、标注、筛选和回流；
+- foundation model、VLA、WAM 或 policy architecture 如何设计；
+- pre-training 与 post-training 分别解决什么；
+- deployment loop 如何把真实运行转化为下一轮改进；
+- failure recovery、generalization 与 safety 如何评估；
+- infrastructure 是否支持可重复的大规模实验；
+- benchmark 与 evaluation 是否具有明确协议、样本量和边界；
+- 商业部署究竟是 demo、pilot、内部评测还是客户生产运行；
+- 每个重要 claim 与 evidence 是否匹配；
+- 哪些关键研究问题仍未解决。
 
-能力分析部分进一步讨论透明物体感知、衣物等柔性物体操作、接触与力控、任务被打断后的恢复、跨家庭场景泛化和家庭安全，并梳理 Diffusion Policy、ACT-1、ACT-2 与 Sunday 技术路线之间的关系。页面也收录关键指标、失败类型、研究问题池、术语表和可追溯参考资料。
+## Companies
 
-## 报告如何组织
+### [Sunday Robotics](./Sunday.html)
 
-全文按照四层结构展开：
+**状态：Published — 已有完整研究报告**
 
-1. **背景与证据**：执行摘要、证据规则、公司档案与创始人的研究谱系。
-2. **系统与产品**：Sunday 的全栈数据闭环、Memo 本体、Memory Glove 和 Memory Developer。
-3. **能力与难点**：透明物体、柔性物体、力控、失败恢复、泛化、安全与学习策略。
-4. **判断与跟踪**：逐项区分公司声明、论文结果、第三方材料和研究推断，并整理尚未得到回答的问题。
+主题：家庭机器人、Memory Glove、human demonstration、ACT、Diffusion Policy、deformable manipulation、force control、recovery、generalization、home robot safety。
 
-报告特别强调证据边界。官方披露可以证明公司作出过某项声明，但不自动等同于第三方验证；内部评测结果也会与适用任务、样本范围和测试条件一起阅读。
+### Dyna Robotics
 
-## 后续更新计划
+**状态：Research in progress**
 
-本项目会随着 Sunday 的公开进展持续维护，重点包括：
+未来报告入口：`./Dyna.html`（本轮尚未创建，避免产生失效链接）。
 
-- 跟踪 Memo 家庭 Beta、量产时间表、价格与硬件规格变化；
-- 补充 ACT 系列、Diffusion Policy、UMI 等相关论文和技术资料；
-- 记录新的演示、评测协议、失败案例与第三方独立验证；
-- 完善公司融资、团队、合作伙伴及家庭机器人竞争格局；
-- 持续校正失效链接、数据口径和已经过时的判断。
+主题：commercial robotics、foundation models、DYNA-1、DYNA-1i、DYNA-2、World-Action Models、human-video scaling、cross-embodiment transfer、post-training、production deployment、robotics data infrastructure。
 
-当前报告为持续更新版，重要改动会通过 Git 提交记录保留，方便读者追踪结论如何随新证据变化。
+当前可审计材料：
+
+- [Dyna research audit](./docs/reports/2026-08-18_dyna_research_audit_v1.md)
+- [Research timeline](./docs/dyna/dyna_research_timeline_v1.md)
+- [Research questions](./docs/dyna/dyna_research_questions_v1.md)
+- [Dyna-2 scientific audit](./docs/dyna/dyna_2_scientific_audit_v1.md)
+- [Dyna-2 infrastructure deep dive](./docs/dyna/dyna_2_infrastructure_deep_dive_v1.md)
+
+## Research methodology
+
+研究路径统一为：
+
+`Problem Definition → Embodiment → Data → Model → Infrastructure → Evaluation → Deployment → Failure → Safety → Evidence Boundary → Open Research Questions`
+
+重要 claim 应尽量记录以下字段：
+
+- source、source type 与 publication date；
+- evidence strength 与可支持的结论范围；
+- evaluation scope 与 protocol；
+- adaptation cost 与 robot-data requirement；
+- human intervention status；
+- third-party verification；
+- unknowns 与推荐写法。
+
+结构化登记表用于保存可机器检查的证据链，叙事报告则解释证据为什么重要、能够说明什么以及不能说明什么。
+
+## Evidence policy
+
+项目明确区分五类证据：
+
+1. **Official company claim**：公司官网、研究页、新闻稿或创始人公开材料。它能证明公司作出过该声明，不自动证明声明已被独立复现。
+2. **Peer-reviewed / research result**：论文、正式技术报告或原始研究项目页。记录实验协议、数据范围、基线和局限；未经过同行评审的公司研究页不会被写成 peer-reviewed 结果。
+3. **Standards / authoritative source**：标准机构、官方技术文档、公司登记或其他权威原始记录。
+4. **Third-party evidence**：高质量英文媒体、投资机构原始公告、客户可归属证词或第三方现场观察。投资人文章与公司案例仍可能存在利益关系，需单独标注。
+5. **Research inference**：基于公开材料作出的分析判断，必须与原始事实分开，并说明不确定性。
+
+优先使用英文一手资料、原始论文、官方研究页面、标准机构和高质量英文第三方来源。不使用中文网站作为研究证据。数字未经独立验证时采用“公司报告”“官方披露”“客户案例称”等限定语。
+
+## Repository structure
+
+```text
+index.html                         多公司研究门户
+Sunday.html                        Sunday Robotics 完整报告（稳定 URL）
+data/                              source、claim 与 demo/deployment registries
+docs/dyna/                         Dyna 专题研究底稿
+docs/reports/                      带日期的审计与版本报告
+.github/workflows/deploy-pages.yml GitHub Pages 发布工作流
+```
+
+GitHub Pages 当前只发布门户和已完成的 Sunday 报告。研究中的 Dyna 文档保留在仓库内，直到完成独立审阅后再决定是否生成 `Dyna.html`。
+
+## Update policy
+
+- 研究以明确的截止日期形成版本快照；Dyna v1 截止于 **2026-08-18**。
+- 新证据优先追加到 source registry，再更新 claim、demo/deployment audit 与叙事报告。
+- 重大数字变化保留旧版本和变更原因，不静默改写历史判断。
+- 链接、日期、外键、优先级和第三方验证状态在发布前执行检查。
+- 公司材料更新不等于证据等级自动提升；只有新增协议、原始数据、独立观察或复现才能改变证据强度。
+
+## Companies roadmap
+
+1. 完成 Dyna 的公开研究基线与人工复核。
+2. 在证据登记表稳定后设计并生成 `Dyna.html`。
+3. 对 Sunday 与 Dyna 建立可比的 deployment、generalization、safety 和 adaptation-cost 字段。
+4. 逐步加入其他具有明确技术路线与可审计公开材料的机器人公司。
+5. 建立跨公司的 benchmark、claim strength 和证据缺口比较视图。
