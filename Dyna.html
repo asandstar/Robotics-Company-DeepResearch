@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -441,6 +441,371 @@
     @media(max-width:900px){.layout{grid-template-columns:1fr}.toc{top:58px}.g3,.g4{grid-template-columns:repeat(2,1fr)}.detail-grid{grid-template-columns:1fr 1fr}.filters,.filter-secondary{grid-template-columns:1fr 1fr}}
     @media(max-width:620px){.layout{padding:0 14px 32px}.hero{padding:58px 16px 20px;border-radius:24px}.hero h1{font-size:clamp(2.3rem,11vw,4rem)}.hero-grid{grid-template-columns:1fr}.hero::after{top:16px;right:16px;letter-spacing:.16em}.toc{border-radius:22px}.chapter{padding:18px 14px 10px;border-radius:24px}.chapter-head{padding-bottom:14px;margin-bottom:12px}.chapter-head h2{font-size:clamp(1.2rem,5vw,1.6rem)}.chapter .section{padding-top:14px}.section-head{grid-template-columns:auto 1fr}.section.section{padding:22px 16px 18px;border-radius:22px}.section.section::after{top:14px;right:16px;font-size:.64rem;letter-spacing:.16em}.g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}.pipe-row{grid-template-columns:1fr}.pipe-row .arrow{transform:rotate(90deg)}.ladder{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.filters,.filter-secondary{grid-template-columns:1fr}.claim summary{grid-template-columns:74px 1fr}.claim summary .risk{grid-column:2;width:max-content}.source{grid-template-columns:72px 1fr}.source>a{grid-column:2}.score-chart{gap:4px;padding:0}.bar i{width:56%}.topbar .brand{max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+    /* Editorial layout v2: Sunday-style report rhythm with Dyna's cooler systems identity. */
+    html[data-theme="light"]{
+      --bg:#e7ece8;
+      --panel:#fbfcf8;
+      --panel2:#f0f4ef;
+      --text:#1f2a25;
+      --muted:#68756e;
+      --line:#cbd5cd;
+      --lime:#6e8738;
+      --cyan:#167e78;
+      --orange:#b96c2e;
+      --red:#a54a42;
+      --blue:#426b96;
+      color-scheme:light;
+    }
+    body{
+      color:var(--text);
+      font-size:14px;
+      line-height:1.78;
+      letter-spacing:.006em;
+      font-synthesis:none;
+      overflow-wrap:break-word;
+    }
+    html[data-theme="light"] body{
+      background:
+        radial-gradient(circle at 8% 2%, rgba(22,126,120,.10), transparent 31rem),
+        radial-gradient(circle at 96% 12%, rgba(185,108,46,.10), transparent 34rem),
+        linear-gradient(180deg,#eef2ee 0%,#e7ece8 48%,#dde5df 100%);
+    }
+    p,li{ text-wrap:pretty; }
+    .topbar{position:sticky;top:0;z-index:90}
+    html[data-theme="light"] .topbar{
+      background:rgba(249,251,247,.88);
+      border-bottom:1px solid rgba(54,77,65,.12);
+      box-shadow:0 8px 28px rgba(35,54,44,.05);
+    }
+    .topbar-inner{display:flex;align-items:center;gap:12px;max-width:1400px;min-height:60px;margin:auto;padding:10px 24px}
+    .top-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+    .brand{font-size:.78rem;font-weight:800;letter-spacing:.11em;color:var(--muted)}
+    .icon-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;cursor:pointer}
+    .menu-btn{display:none}
+    html[data-theme="light"] .icon-btn{
+      color:var(--text);background:#fff;border:1px solid var(--line);box-shadow:0 5px 15px rgba(38,58,47,.05)
+    }
+    .layout{
+      grid-template-columns:minmax(220px,250px) minmax(0,1040px);
+      max-width:1360px;
+      justify-content:center;
+      gap:30px;
+      padding:24px 24px 72px;
+    }
+    main{width:100%;max-width:1040px;padding:0}
+    .toc{
+      top:84px;
+      height:calc(100vh - 108px);
+      padding:18px 12px 24px;
+      border-radius:24px;
+      scrollbar-width:thin;
+    }
+    html[data-theme="light"] .toc{
+      background:rgba(251,252,248,.88);
+      border-color:rgba(54,77,65,.12);
+      box-shadow:0 16px 44px rgba(37,55,46,.08);
+    }
+    .toc strong{margin:2px 10px 17px;font-size:.68rem;letter-spacing:.18em}
+    .toc-group{
+      --toc-accent:var(--cyan);
+      margin:0 0 13px;
+      padding:4px 4px 4px 10px;
+      border:0;
+      border-left:3px solid var(--toc-accent);
+      border-radius:0;
+      background:transparent;
+    }
+    .toc-group.evidence{--toc-accent:var(--blue)}
+    .toc-group.deployment{--toc-accent:var(--orange)}
+    .toc-group.appendix{--toc-accent:var(--lime)}
+    .toc-group span{margin:0 7px 7px;color:var(--toc-accent);font-size:.66rem;letter-spacing:.13em}
+    .toc a{margin:0;padding:6px 8px;border-radius:9px;font-size:.78rem;line-height:1.28;color:var(--muted)}
+    .toc a .toc-cn{display:block;color:inherit;font-weight:700}
+    .toc a .toc-en{display:block;margin-top:1px;font-size:.64rem;font-weight:500;letter-spacing:.01em;opacity:.74}
+    .toc a:hover,.toc a.active{
+      color:var(--text);background:rgba(22,126,120,.08);border-color:transparent;box-shadow:inset 3px 0 var(--toc-accent)
+    }
+    .hero{
+      width:100%;
+      min-height:650px;
+      margin:0 0 30px;
+      padding:74px 54px 46px;
+      border-radius:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    html[data-theme="light"] .hero{
+      color:#f4f8f3;
+      border-color:rgba(255,255,255,.12);
+      background:
+        linear-gradient(120deg,rgba(10,31,26,.97),rgba(18,54,46,.93) 58%,rgba(41,68,58,.84)),
+        radial-gradient(circle at 85% 15%,rgba(101,216,209,.32),transparent 28rem);
+      box-shadow:0 24px 60px rgba(28,49,39,.18);
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.38;
+      background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(to bottom,black,transparent 78%);
+    }
+    .hero::after{top:28px;right:34px;color:rgba(255,255,255,.4)}
+    .hero>*{position:relative;z-index:1}
+    .hero .kicker{align-self:flex-start;color:#9ce7dd;border-color:rgba(156,231,221,.28);background:rgba(156,231,221,.09)}
+    .hero h1{
+      max-width:900px;
+      margin:22px 0 18px;
+      color:#fff;
+      font-family:"Iowan Old Style","Noto Serif SC","Songti SC",Georgia,serif;
+      font-size:clamp(3.15rem,6.5vw,5.6rem);
+      font-weight:700;
+      line-height:1.02;
+      letter-spacing:-.045em;
+      text-wrap:balance;
+    }
+    .hero h1 span{max-width:820px;margin-top:18px;color:rgba(239,247,242,.72);font-family:inherit;font-size:.27em;line-height:1.45;letter-spacing:.01em}
+    .subtitle{max-width:800px;margin:0;color:rgba(239,247,242,.82);font-size:1rem;line-height:1.8}
+    .meta-row{margin-top:24px}
+    .meta{color:#eef7f1;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.13);box-shadow:none}
+    .thesis-flow{margin-top:22px;padding:14px 16px;background:rgba(3,15,12,.35);border-color:rgba(156,231,221,.18);box-shadow:none}
+    .hero .node{color:#f5fbf7;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+    .hero .arrow{color:#9ce7dd}
+    .hero-grid{gap:12px;margin-top:18px}
+    .hero-card{padding:17px 17px 16px;border-radius:16px;background:rgba(255,255,255,.065);border-color:rgba(255,255,255,.12);box-shadow:none}
+    html[data-theme="light"] .hero-card{background:rgba(255,255,255,.065);border-color:rgba(255,255,255,.12);box-shadow:none}
+    .hero-card::before{height:3px}
+    .hero-card p{color:rgba(247,251,248,.9);font-size:.86rem;line-height:1.7}
+    .hero .boundary{color:#fff0dc;background:rgba(185,108,46,.13);border-color:rgba(255,198,141,.22)}
+    section.section{
+      margin:0 0 30px;
+      padding:42px 44px;
+      border-radius:30px;
+      overflow:visible;
+    }
+    html[data-theme="light"] section.section{
+      background:rgba(251,252,248,.96);
+      border-color:rgba(54,77,65,.14);
+      box-shadow:0 14px 38px rgba(39,58,48,.07);
+    }
+    section.section::before,section.section::after{display:none}
+    .section-head{
+      display:block;
+      margin:0 0 22px;
+      padding:0 0 18px;
+      border-bottom:1px solid var(--line);
+    }
+    .section-head .num{
+      display:block;
+      width:max-content;
+      min-width:0;
+      height:auto;
+      margin:0 0 8px;
+      padding:0;
+      color:var(--section-accent,var(--cyan));
+      background:none;
+      border:0;
+      border-radius:0;
+      font-size:.72rem;
+      font-weight:850;
+      letter-spacing:.16em;
+    }
+    .section-head h2{
+      margin:0;
+      color:var(--text);
+      font-family:"Iowan Old Style","Noto Serif SC","Songti SC",Georgia,serif;
+      font-size:clamp(2rem,3.4vw,2.8rem);
+      line-height:1.18;
+      letter-spacing:-.015em;
+      text-wrap:balance;
+    }
+    .zh-title{display:block}
+    .en-title{
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+      font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+      font-size:.38em;
+      font-weight:650;
+      line-height:1.35;
+      letter-spacing:.06em;
+      text-transform:none;
+    }
+    .lede{max-width:790px;margin-bottom:22px;color:var(--muted);font-size:.96rem;line-height:1.85}
+    .chapter{
+      position:relative;
+      margin:0 0 32px;
+      padding:0;
+      border-radius:32px;
+      overflow:hidden;
+    }
+    html[data-theme="light"] .chapter{
+      background:rgba(251,252,248,.97);
+      border-color:rgba(54,77,65,.15);
+      box-shadow:0 16px 42px rgba(39,58,48,.08);
+    }
+    .chapter-head{
+      position:relative;
+      margin:0;
+      padding:42px 44px 34px;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(135deg,rgba(22,126,120,.11),rgba(66,107,150,.055) 54%,transparent);
+    }
+    #chapter-evidence .chapter-head{background:linear-gradient(135deg,rgba(66,107,150,.12),rgba(22,126,120,.055) 58%,transparent)}
+    #chapter-deployment .chapter-head{background:linear-gradient(135deg,rgba(185,108,46,.13),rgba(165,74,66,.045) 58%,transparent)}
+    #chapter-appendix .chapter-head{background:linear-gradient(135deg,rgba(110,135,56,.13),rgba(22,126,120,.045) 58%,transparent)}
+    .chapter-head::after{
+      content:attr(data-chapter);position:absolute;right:30px;top:10px;color:rgba(31,42,37,.055);
+      font:800 clamp(5rem,12vw,9rem)/1 Inter,system-ui,sans-serif;letter-spacing:-.08em
+    }
+    #chapter-core .chapter-head::after{content:"01"}
+    #chapter-evidence .chapter-head::after{content:"02"}
+    #chapter-deployment .chapter-head::after{content:"03"}
+    #chapter-appendix .chapter-head::after{content:"04"}
+    .chapter-head .kicker{margin:0 0 14px;padding:0;border:0;background:none;color:var(--cyan);font-size:.72rem;letter-spacing:.18em}
+    .chapter-head h2{
+      max-width:820px;
+      margin:0;
+      color:var(--text);
+      font-family:"Iowan Old Style","Noto Serif SC","Songti SC",Georgia,serif;
+      font-size:clamp(2.35rem,4.7vw,3.65rem);
+      line-height:1.1;
+      letter-spacing:-.025em;
+      text-wrap:balance;
+    }
+    .chapter-head .en-title{font-size:.31em;margin-top:8px}
+    .chapter-head .lede{max-width:820px;margin:17px 0 0;color:var(--muted);font-size:.96rem}
+    .chapter-argument{
+      position:relative;z-index:1;max-width:850px;margin:16px 0 0;padding-left:18px;
+      border-left:4px solid var(--cyan);color:var(--text);font-size:.9rem;line-height:1.82
+    }
+    #chapter-evidence .chapter-argument{border-left-color:var(--blue)}
+    #chapter-deployment .chapter-argument{border-left-color:var(--orange)}
+    #chapter-appendix .chapter-argument{border-left-color:var(--lime)}
+    .chapter-map{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+    .chapter-map a{
+      display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid rgba(54,77,65,.13);
+      border-radius:999px;background:rgba(255,255,255,.55);color:var(--muted);font-size:.74rem;line-height:1.2
+    }
+    .chapter-map a:hover{color:var(--text);border-color:var(--cyan);background:#fff}
+    .chapter-map b{color:var(--cyan);font-size:.66rem;letter-spacing:.06em}
+    .chapter .section{
+      margin:0;
+      padding:46px 44px 50px;
+      border:0;
+      border-top:1px solid rgba(54,77,65,.11);
+      border-radius:0;
+      background:transparent;
+      box-shadow:none;
+      backdrop-filter:none;
+    }
+    .chapter .section:first-of-type{border-top:0}
+    .chapter .section:nth-of-type(even){background:linear-gradient(90deg,rgba(22,126,120,.025),transparent 45%)}
+    .chapter .section-head{margin-bottom:22px;padding:0;border:0}
+    .chapter .section-head .num{margin-bottom:10px;background:none;border:0;color:var(--cyan)}
+    .chapter .section h2{font-size:clamp(1.85rem,3.2vw,2.65rem);letter-spacing:-.015em}
+    .chapter .section h3,.card h3{font-size:1.08rem;line-height:1.45}
+    .card,details,.diagram,.table-wrap,.source,.accordion,.pipeline,.score-chart,.stage-detail{
+      border-radius:20px;
+      box-shadow:none;
+    }
+    html[data-theme="light"] .card,
+    html[data-theme="light"] details,
+    html[data-theme="light"] .diagram,
+    html[data-theme="light"] .table-wrap,
+    html[data-theme="light"] .source,
+    html[data-theme="light"] .accordion,
+    html[data-theme="light"] .pipeline,
+    html[data-theme="light"] .score-chart,
+    html[data-theme="light"] .stage-detail{
+      background:#fff;
+      border-color:rgba(54,77,65,.14);
+      box-shadow:0 8px 22px rgba(39,58,48,.045);
+    }
+    .card{padding:21px 21px 19px}
+    .card::before{display:none}
+    html[data-theme="light"] .grid>.card:nth-child(4n+1){background:linear-gradient(145deg,#fff,rgba(22,126,120,.095))}
+    html[data-theme="light"] .grid>.card:nth-child(4n+2){background:linear-gradient(145deg,#fff,rgba(66,107,150,.095))}
+    html[data-theme="light"] .grid>.card:nth-child(4n+3){background:linear-gradient(145deg,#fff,rgba(185,108,46,.10))}
+    html[data-theme="light"] .grid>.card:nth-child(4n+4){background:linear-gradient(145deg,#fff,rgba(110,135,56,.10))}
+    html[data-theme="light"] .card.known{background:linear-gradient(145deg,#fff,rgba(110,135,56,.14));border-color:rgba(110,135,56,.26)}
+    html[data-theme="light"] .card.unknown{background:linear-gradient(145deg,#fff,rgba(165,74,66,.10));border-color:rgba(165,74,66,.22)}
+    .card .metric{color:var(--section-accent,var(--cyan));font-family:"Iowan Old Style",Georgia,serif;font-size:2.45rem}
+    .callout{
+      padding:17px 19px;
+      border:0;
+      border-left:5px solid var(--orange);
+      border-radius:0 16px 16px 0;
+      background:rgba(185,108,46,.09);
+    }
+    .callout.info{border-left-color:var(--cyan);background:rgba(22,126,120,.09)}
+    .callout.danger{border-left-color:var(--red);background:rgba(165,74,66,.09)}
+    .badge,.chip,.label{font-size:.72rem}
+    .diagram{padding:18px;background:#f8faf7!important}
+    .diagram svg{min-width:720px}
+    .table-wrap{margin-top:18px;background:#fff}
+    table{font-size:.79rem;line-height:1.62}
+    th,td{padding:13px 12px;border-bottom:1px solid var(--line)}
+    th{color:var(--muted);background:#f0f4ef!important;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase}
+    tr:nth-child(even) td{background:rgba(231,236,232,.38)!important}
+    details{margin:10px 0;padding:0 17px}
+    details summary{padding:14px 2px;font-weight:750}
+    details[open]{border-color:rgba(22,126,120,.28)!important}
+    .detail-body{border-top:1px solid var(--line)}
+    .pipeline{padding:18px}
+    .pipe-row{border-bottom:1px solid var(--line)}
+    .ladder{gap:9px}
+    .rung{border-radius:18px;border-color:var(--line);background:#fff;color:var(--text)}
+    .rung:hover,.rung:focus-visible{border-color:var(--cyan);background:rgba(22,126,120,.06)}
+    .stage[aria-pressed="true"]{border-color:var(--cyan)!important;box-shadow:inset 0 0 0 2px rgba(22,126,120,.16)!important}
+    .score-chart{height:330px;padding:24px 28px 18px;background:linear-gradient(180deg,#f8faf7,#eef3ee)!important}
+    .score-chart .bar i{background:linear-gradient(180deg,var(--cyan),rgba(22,126,120,.28))}
+    .filters,.filter-secondary{gap:10px;margin:18px 0}
+    input,select{
+      min-height:44px;padding:10px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text)
+    }
+    .claim,.demo{overflow:hidden}
+    .claim summary,.demo summary{background:#fff}
+    .claim summary:hover,.demo summary:hover{background:rgba(22,126,120,.055)}
+    .source{margin-bottom:10px}
+    .source-id,.claim-id{color:var(--cyan);background:rgba(22,126,120,.08)!important;border-color:rgba(22,126,120,.16)!important}
+    .term{border-color:var(--line);background:#fff;box-shadow:none}
+    .backtop{color:#fff;background:#24443a;border-color:rgba(255,255,255,.2);box-shadow:0 12px 28px rgba(27,49,40,.18)}
+    :where(a,button,input,select,summary,.term):focus-visible{outline:3px solid rgba(22,126,120,.45);outline-offset:3px}
+    @media(max-width:900px){
+      .layout{display:block;max-width:1040px;padding:18px 18px 60px}
+      .menu-btn{display:inline-flex}
+      .toc{top:60px;height:calc(100vh - 60px);border-radius:0 22px 22px 0}
+      .hero{min-height:auto;padding:76px 34px 36px}
+      .chapter-head,.chapter .section,section.section{padding-left:32px;padding-right:32px}
+    }
+    @media(max-width:620px){
+      body{font-size:13.5px}
+      .layout{padding:12px 12px 48px}
+      .hero{margin-bottom:18px;padding:64px 20px 24px;border-radius:24px}
+      .hero h1{font-size:clamp(2.55rem,12vw,4rem)}
+      .hero h1 span{font-size:.31em}
+      .hero-grid{grid-template-columns:1fr}
+      .thesis-flow{padding:12px}
+      .hero .node{width:100%;text-align:center}
+      .hero .arrow{width:100%;text-align:center;transform:rotate(90deg)}
+      section.section{margin-bottom:18px;padding:28px 21px;border-radius:24px}
+      .chapter{margin-bottom:18px;border-radius:24px}
+      .chapter-head{padding:30px 21px 26px}
+      .chapter-head h2{font-size:clamp(2rem,10vw,2.75rem)}
+      .chapter .section{padding:32px 21px 36px}
+      .chapter .section h2,.section-head h2{font-size:clamp(1.65rem,8vw,2.25rem)}
+      .section-head{display:block}
+      .chapter-map{gap:6px}
+      .chapter-map a{font-size:.69rem}
+      .g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}
+      .diagram{overflow:auto;padding:12px}
+      .diagram svg{min-width:680px}
+      .table-wrap{overflow:auto}
+      table{min-width:700px}
+      .score-chart{height:260px;padding:18px 8px 12px}
+    }
     @media print{:root{--bg:#fff;--panel:#fff;--panel2:#f4f4f4;--text:#111;--muted:#444;--line:#bbb;--lime:#315000;--cyan:#005f5b;color-scheme:light}.topbar,.toc,.progress,.backtop,.copy-link,.filters,.filter-secondary,.filter-btn{display:none!important}.layout{display:block;max-width:none;padding:0}.hero{min-height:auto;padding:24px 0}.section{padding:28px 0;break-before:page}.card,details,.diagram,.table-wrap,.source{break-inside:avoid}details>*{display:block!important}details summary{list-style:none}.claim-list .claim{display:block!important}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8pt;color:#555}h1{font-size:38pt}.score-chart{height:180px}}
   </style>
 </head>
@@ -477,6 +842,8 @@
       <div class="kicker">Chapter 1</div>
       <h2>Core technical stack / 核心技术主线</h2>
       <p class="lede">把 Dyna 的研究主线合并阅读：时间线、系统架构、数据引擎、扩展阶梯、证据三阶段、WAM 与 WAM vs VLA 共同构成一条完整技术链。</p>
+      <p class="chapter-argument">本章的阅读重点不是把模块名称串成一张产品架构图，而是逐层回答三个问题：human video 究竟提供了什么监督，什么变量真正随规模变化，以及真机结论在哪一步重新引入 robot data。只有把这三层拆开，20 → 28 → 45 → 53 才不会被误读成通用成功率。</p>
+      <nav class="chapter-map" aria-label="核心技术主线章节索引"><a href="#timeline"><b>03</b>研究演化</a><a href="#system"><b>04</b>系统分层</a><a href="#data-engine"><b>05</b>数据引擎</a><a href="#scaling-ladder"><b>06</b>扩展变量</a><a href="#stages"><b>07–08</b>证据链</a><a href="#wam"><b>09–10</b>WAM</a></nav>
     </div>
   <section class="section" id="timeline" data-title="Research timeline"><div class="section-head"><span class="num">03</span><h2>Research Evolution Timeline</h2></div><p class="lede">点击阶段展开 Problem、Data、Model、Evaluation、Deployment 与 remaining bottleneck。</p><div class="timeline" id="timelineList"></div></section>
 
@@ -494,13 +861,14 @@
 
   <section class="section" id="wam-vla" data-title="WAM vs VLA"><div class="section-head"><span class="num">10</span><h2>WAM vs VLA</h2></div><div class="g3 grid"><div class="card"><div class="metric">1.55×</div><p>pooled success rate</p></div><div class="card"><div class="metric">1.12×</div><p>pooled quality grade</p></div><div class="card"><div class="metric">65 / 29 / 6</div><p>win / loss / tie (%)</p></div></div><p class="small">Comparison baseline: Dyna's internal production Dyna-1 VLA · 7 tasks × 3 checkpoints [DYN-C036–037]</p><div class="callout"><b>Fairness / limitations：</b>internal baseline；early WAM 与 final Dyna-2 不同；small task set；pipeline 此前为 VLA 调优；没有在公共统一 benchmark 上比较 OpenVLA、π0、π0.5 等外部强 VLA。不能写成 WAM universally beats VLA。</div></section>
   </section>
-  </section>
 
   <section class="chapter" id="chapter-evidence" data-title="11-15 · Evidence platform">
     <div class="chapter-head">
       <div class="kicker">Chapter 2</div>
       <h2>Evidence platform / 证据平台与基础设施</h2>
       <p class="lede">把瓶盖案例、跨本体、基础设施与其数值、以及“为什么基础设施重要”合并在一起看，更容易看见 Dyna 是如何把工程系统变成研究变量的。</p>
+      <p class="chapter-argument">瓶盖案例暴露任务级 adaptation cost 的口径问题，百万小时管线则暴露实验可重复性的系统成本。两者共同说明：规模研究不仅依赖模型与数据量，还依赖 episode 组织、manifest、局部缓存、通信拓扑与失败恢复；但这些内部工程测量仍然是 workload-specific evidence。</p>
+      <nav class="chapter-map" aria-label="证据平台与基础设施章节索引"><a href="#bottle-cap"><b>11</b>瓶盖审计</a><a href="#cross-embodiment"><b>12</b>跨本体</a><a href="#infrastructure"><b>13</b>数据基础设施</a><a href="#infra-numbers"><b>14</b>内部指标</a><a href="#why-infra"><b>15</b>瓶颈迁移</a></nav>
     </div>
 
   <section class="section" id="bottle-cap" data-title="Bottle-cap audit"><div class="section-head"><span class="num">11</span><h2>Bottle-Cap Case Study</h2></div><div class="g2 grid"><div class="card"><span class="badge" data-code="OR">OR · DYN-S006</span><h3>roughly 10 minutes</h3><p>technical report：robot demonstrations；10 physical trials per checkpoint。</p></div><div class="card"><span class="badge" data-code="CM">CM · DYN-S033</span><h3>13 minutes of data</h3><p>corrected press release wording。</p></div></div><div class="chips"><span class="chip">1K · 10%</span><span class="chip">10K · 10%</span><span class="chip">100K · 40%</span><span class="chip">1M · 50%</span></div><div class="callout danger"><b>10 minutes is not total engineering effort.</b> 未披露 collection overhead、rejected trajectories、operator time、setup、hyperparameter search、robot resets、seed variation、object variation。10/13 保留为 source-specific discrepancy，不合并成假精度。[DYN-C032; DYN-C068]</div></section>
@@ -513,13 +881,14 @@
 
   <section class="section" id="why-infra" data-title="Why infrastructure matters"><div class="section-head"><span class="num">15</span><h2>Why Million-Hour Infrastructure Matters</h2></div><div class="thesis-flow"><span class="node">Storage</span><span class="arrow">→</span><span class="node">Scheduler</span><span class="arrow">→</span><span class="node">Metadata</span><span class="arrow">→</span><span class="node">Network</span><span class="arrow">→</span><span class="node">Optimizer Communication</span><span class="arrow">→</span><span class="node">Reliability</span></div><p class="lede">1M hours 不只是“更多存储”。当一个瓶颈被移除，主成本移动到控制面、manifest、数据局部性、collective communication 或多周训练的故障恢复。单纯增加 GPU 无法修复随机读取、scheduler write burst、48 小时 manifest crawl 或远端 object-store latency。</p></section>
   </section>
-  </section>
 
   <section class="chapter" id="chapter-deployment" data-title="16-23 · Deployment and commercial audit">
     <div class="chapter-head">
       <div class="kicker">Chapter 3</div>
       <h2>Deployment and commercial audit / 部署与商业证据</h2>
       <p class="lede">把部署台账、Monster Laundry、24/7、营销语言、14 vs 15 任务、Safety、融资和 Sunday 对比放在一起，读者会更容易分清：哪些是 demo，哪些是 customer corroboration，哪些仍然只是 company wording。</p>
+      <p class="chapter-argument">本章按证据升级路径阅读：company wording → public demo → named-customer corroboration → independently audited deployment。Dyna 已公开若干长时运行、客户现场与吞吐叙述，但 fleet uptime、干预率、维护、事故与完整经济性仍不足以支持更强的生产结论。</p>
+      <nav class="chapter-map" aria-label="部署与商业证据章节索引"><a href="#deployment"><b>16</b>部署台账</a><a href="#monster"><b>17–18</b>客户与自主性</a><a href="#marketing"><b>19–20</b>语言审计</a><a href="#safety"><b>21</b>安全边界</a><a href="#business"><b>22–23</b>商业与对比</a></nav>
     </div>
 
   <section class="section" id="deployment" data-title="Deployment ledger"><div class="section-head"><span class="num">16</span><h2>Deployment Ledger</h2></div><div class="filters filter-secondary"><input id="demoSearch" type="search" placeholder="搜索 demo / task / robot" aria-label="搜索部署记录"><select id="demoType" aria-label="按评测类型筛选"><option value="">All evaluation types</option></select><select id="demoExternal" aria-label="按外部佐证筛选"><option value="">All corroboration</option></select><select id="demoIndependent" aria-label="按独立验证筛选"><option value="">All verification</option><option>Yes</option><option>Partial</option><option>No</option></select></div><p class="count" id="demoCount"></p><div id="demoList"></div></section>
@@ -538,13 +907,14 @@
 
   <section class="section" id="comparison" data-title="Sunday vs Dyna"><div class="section-head"><span class="num">23</span><h2>Sunday vs Dyna</h2></div><p class="lede">仅做 conceptual comparison；不直接横比 success rate。</p><div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Sunday Robotics</th><th>Dyna Robotics</th></tr></thead><tbody><tr><td>Problem thesis</td><td>general-purpose household assistance</td><td>commercial manipulation scale and physical economy</td></tr><tr><td>Target environment</td><td>homes, high variability</td><td>commercial workflows and customer sites</td></tr><tr><td>Embodiment</td><td>mobile household robot lineage</td><td>stationary bimanual, hands, semi-humanoid, DYNA-SAUR</td></tr><tr><td>Data</td><td>human demonstration and household interaction</td><td>human egocentric video + task robot data</td></tr><tr><td>Model</td><td>Founder lineage: ALOHA, ACT, Mobile ALOHA, Diffusion Policy, UMI. Proprietary ACT-1/ACT-2 full architecture undisclosed.</td><td>DYNA-1 VLA lineage；Dyna-2 WAM</td></tr><tr><td>Post-training</td><td>proprietary details limited</td><td>task-specific robot post-training disclosed for physical suite</td></tr><tr><td>Deployment loop</td><td>household breadth and recovery</td><td>production feedback and task/site adaptation</td></tr><tr><td>Safety pressure</td><td>unstructured human-shared home</td><td>industrial/customer workflow and uptime</td></tr><tr><td>Evidence style</td><td>selected demos and research lineage</td><td>large internal experiments + systems report + deployment claims</td></tr><tr><td>Current bottleneck</td><td>open-home robustness and safety</td><td>independent replication, adaptation cost and fleet reliability</td></tr></tbody></table></div></section>
   </section>
-  </section>
 
   <section class="chapter" id="chapter-appendix" data-title="24-30 · Appendix and reference tools">
     <div class="chapter-head">
       <div class="kicker">Chapter 4</div>
       <h2>Appendix and reference tools / 附录与检索工具</h2>
       <p class="lede">最后把高风险 claim、Claim Explorer、研究问题、审稿人视角、术语表、结构化来源和发布边界放在一起，作为查阅与审计入口。</p>
+      <p class="chapter-argument">正文提供研究综合，registry 负责保存逐条 claim 的精确 wording、scope、adaptation cost、attempt denominator 与 unknowns。读者可以从高重要度且高验证风险的条目进入，也可以反向从 source registry 检查正文中的每个数字。</p>
+      <nav class="chapter-map" aria-label="附录与检索工具章节索引"><a href="#high-risk"><b>24</b>高风险入口</a><a href="#claims"><b>25</b>Claim Explorer</a><a href="#questions"><b>26–27</b>研究与审稿</a><a href="#glossary"><b>28</b>术语</a><a href="#sources"><b>29–30</b>来源与边界</a></nav>
     </div>
 
   <section class="section" id="high-risk" data-title="High importance / risk"><div class="section-head"><span class="num">24</span><h2>High Importance + High Verification Risk</h2></div><p class="lede">从当前 registry 自动提取，不维护静态旧清单。</p><p class="count" id="highRiskCount"></p><div class="highrisk" id="highRiskList"></div></section>
@@ -574,15 +944,24 @@ const unique=(arr,k)=>[...new Set(arr.map(x=>x[k]).filter(Boolean))].sort();
 const fill=(id,arr,k)=>{const el=$(id);unique(arr,k).forEach(v=>el.insertAdjacentHTML('beforeend',`<option>${esc(v)}</option>`))};
 const legend=[['OR','Official Research'],['CT','Official Company Technical Post'],['CM','Official Company / Marketing'],['RP','Research Paper'],['EB','External Dataset / Benchmark'],['TP','Third Party Reporting'],['RI','Research Inference']];
 $('#evidenceLegend').innerHTML=legend.map(x=>`<span class="badge" data-code="${x[0]}" title="${x[1]}">${x[0]} · ${x[1]}</span>`).join('');
-const sectionTitles={'cover':'封面 / Cover','executive':'00 · 关键证据卡 / Executive Evidence Card','how-read':'01 · 如何阅读本报告 / How to Read This Report','thesis':'02 · 公司主张 / Company Thesis','chapter-core':'03-10 · Core technical stack / 核心技术主线','timeline':'03 · 研究演化时间线 / Research Evolution Timeline','system':'04 · 系统架构 / System Architecture','data-engine':'05 · 数据引擎 / Data Engine','scaling-ladder':'06 · 百万小时扩展阶梯 / Million-Hour Scaling Ladder','stages':'07 · 三阶段证据链 / Three Evidence Stages','score':'08 · 20 → 28 → 45 → 53','wam':'09 · World-Action Model 深入解析 / World-Action Model Deep Dive','wam-vla':'10 · WAM vs VLA','chapter-evidence':'11-15 · Evidence platform / 证据平台与基础设施','bottle-cap':'11 · 瓶盖案例研究 / Bottle-Cap Case Study','cross-embodiment':'12 · 跨本体审计 / Cross-Embodiment Audit','infrastructure':'13 · 基础设施深挖 / Infrastructure Deep Dive','infra-metrics':'14 · 基础设施指标看板 / Infrastructure Numbers Dashboard','why-infra':'15 · 百万小时基础设施为何重要 / Why Million-Hour Infrastructure Matters','chapter-deployment':'16-23 · Deployment and commercial audit / 部署与商业证据','deployment':'16 · 部署台账 / Deployment Ledger','monster':'17 · Monster Laundry','autonomy':'18 · 24/7 自主运行审计 / 24/7 Autonomy Audit','marketing':'19 · 营销语言 vs 技术机制 / Marketing Language vs Technical Mechanism','task-discrepancy':'20 · 14 任务与 15 任务差异 / 14-task vs 15-task Source Discrepancy','safety':'21 · 安全与可靠性 / Safety and Reliability','business':'22 · 商业与融资 / Business and Funding','comparison':'23 · Sunday 与 Dyna / Sunday vs Dyna','chapter-appendix':'24-30 · Appendix and reference tools / 附录与检索工具','high-risk':'24 · 高重要度 + 高验证风险 / High Importance + High Verification Risk','claims':'25 · Claim Explorer','questions':'26 · 研究问题 / Research Questions','reviewer':'27 · 审稿人视角 / If Dyna-2 Were a Conference Submission','glossary':'28 · 术语表 / Glossary','sources':'29 · 结构化来源 / Structured Sources','limits':'30 · 发布边界 / Publication Boundary'};
-const tocGroups=[['概览 / Overview',['cover','executive','how-read','thesis']],['核心章节 / Core Chapters',['chapter-core','chapter-evidence','chapter-deployment','chapter-appendix']]];
-const sections=$$('main>section[data-title]');
-sections.forEach(s=>{if(sectionTitles[s.id]){s.dataset.title=sectionTitles[s.id];const h2=s.querySelector('h2');if(h2)h2.textContent=sectionTitles[s.id];}});
-const toc=$('#toc');toc.insertAdjacentHTML('beforeend',tocGroups.map(([label,ids])=>`<div class="toc-group"><span>${esc(label)}</span>${ids.filter(id=>$('#'+id)).map(id=>`<a href="#${id}">${esc(sectionTitles[id]||$('#'+id).dataset.title||id)}</a>`).join('')}</div>`).join(''));
+const sectionTitles={'cover':'封面 / Cover','executive':'关键证据卡 / Executive Evidence Card','how-read':'如何阅读本报告 / How to Read This Report','thesis':'公司主张 / Company Thesis','chapter-core':'核心技术主线 / Core Technical Stack','timeline':'研究演化时间线 / Research Evolution Timeline','system':'系统架构与归因边界 / System Architecture','data-engine':'数据引擎 / Data Engine','scaling-ladder':'百万小时扩展阶梯 / Million-Hour Scaling Ladder','stages':'三阶段证据链 / Three Evidence Stages','score':'20 → 28 → 45 → 53 / Aggregate Physical Score','wam':'World-Action Model 深入解析 / World-Action Model Deep Dive','wam-vla':'WAM 与 VLA 内部比较 / WAM vs VLA','chapter-evidence':'证据平台与基础设施 / Evidence Platform and Infrastructure','bottle-cap':'瓶盖案例研究 / Bottle-Cap Case Study','cross-embodiment':'跨本体审计 / Cross-Embodiment Audit','infrastructure':'基础设施深挖 / Infrastructure Deep Dive','infra-numbers':'基础设施指标看板 / Infrastructure Numbers Dashboard','why-infra':'百万小时基础设施为何重要 / Why Million-Hour Infrastructure Matters','chapter-deployment':'部署与商业证据 / Deployment and Commercial Audit','deployment':'部署台账 / Deployment Ledger','monster':'Monster Laundry 客户证据 / Named-Customer Evidence','autonomy':'24/7 自主运行审计 / 24/7 Autonomy Audit','marketing':'营销语言 vs 技术机制 / Marketing Language vs Technical Mechanism','task-discrepancy':'14 任务与 15 任务差异 / 14-task vs 15-task Source Discrepancy','safety':'安全与可靠性 / Safety and Reliability','business':'商业与融资 / Business and Funding','comparison':'Sunday 与 Dyna / Conceptual Comparison','chapter-appendix':'附录与检索工具 / Appendix and Reference Tools','high-risk':'高重要度 + 高验证风险 / High Importance + High Verification Risk','claims':'Claim Explorer / Structured Claim Registry','questions':'研究问题 / Research Questions','reviewer':'审稿人视角 / If Dyna-2 Were a Conference Submission','glossary':'术语表 / Glossary','sources':'结构化来源 / Structured Sources','limits':'发布边界 / Publication Boundary'};
+const tocGroups=[
+  ['概览 / Overview',['cover','executive','how-read','thesis'],'overview'],
+  ['核心技术 / Technical Core',['chapter-core','timeline','system','data-engine','scaling-ladder','stages','score','wam','wam-vla'],'core'],
+  ['证据与基础设施 / Evidence',['chapter-evidence','bottle-cap','cross-embodiment','infrastructure','infra-numbers','why-infra'],'evidence'],
+  ['部署与商业 / Deployment',['chapter-deployment','deployment','monster','autonomy','marketing','task-discrepancy','safety','business','comparison'],'deployment'],
+  ['附录与工具 / Appendix',['chapter-appendix','high-risk','claims','questions','reviewer','glossary','sources','limits'],'appendix']
+];
+const titleParts=label=>{const p=label.split(' / ');return [p[0],p.slice(1).join(' / ')]};
+const titleHTML=label=>{const [zh,en]=titleParts(label);return `<span class="zh-title">${esc(zh)}</span>${en?`<span class="en-title">${esc(en)}</span>`:''}`};
+const tocHTML=label=>{const [zh,en]=titleParts(label);return `<span class="toc-cn">${esc(zh)}</span>${en?`<span class="toc-en">${esc(en)}</span>`:''}`};
+const sections=$$('main section[data-title]');
+sections.forEach(s=>{if(sectionTitles[s.id]){s.dataset.title=sectionTitles[s.id];const h2=s.querySelector(':scope > .chapter-head h2, :scope > .section-head h2');if(h2)h2.innerHTML=titleHTML(sectionTitles[s.id]);}});
+const toc=$('#toc');toc.insertAdjacentHTML('beforeend',tocGroups.map(([label,ids,tone])=>`<div class="toc-group ${tone}"><span>${esc(label)}</span>${ids.filter(id=>$('#'+id)).map(id=>`<a href="#${id}">${tocHTML(sectionTitles[id]||$('#'+id).dataset.title||id)}</a>`).join('')}</div>`).join(''));
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$('.toc a').forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70%'});sections.forEach(s=>obs.observe(s));
 addEventListener('scroll',()=>{$('#progressBar').style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100||0)+'%'});
 $('#menuBtn').onclick=()=>{const o=$('#toc').classList.toggle('open');$('#menuBtn').setAttribute('aria-expanded',o)};$$('.toc a').forEach(a=>a.onclick=()=>$('#toc').classList.remove('open'));
-const saved=localStorage.getItem('dyna-theme');if(saved)document.documentElement.dataset.theme=saved;$('#themeBtn').onclick=()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=n;localStorage.setItem('dyna-theme',n)};
+const saved=localStorage.getItem('dyna-theme-v2');if(saved)document.documentElement.dataset.theme=saved;$('#themeBtn').onclick=()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=n;localStorage.setItem('dyna-theme-v2',n)};
 $('#backTop').onclick=()=>scrollTo({top:0,behavior:'smooth'});
 const timeline=[
 ['DYNA-1','long-horizon reliability','deployment runtime + RM loop','VLA + foundation reward model','24-hour napkin run; 850+; 99.4% company-reported','paying-customer claim; site metrics sparse','attempt log, resets, safety and rare-failure distribution'],
