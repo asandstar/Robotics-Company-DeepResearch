@@ -33,6 +33,7 @@
 - Consolidated the accumulated CSS into one structural foundation, one editorial theme layer and one responsive rule set; duplicate mobile breakpoints and obsolete chapter overrides were removed.
 - Restored explicit grid foundations for two-, three- and four-column cards, filters, detail fields, the scaling ladder, score chart and source list.
 - Added source-bounded research briefs to Data Engine, Three Evidence Stages, WAM and Infrastructure. These briefs distinguish dataset source from supervision, offline prediction from physical execution, training objective from inference behavior, and storage scale from end-to-end systems bottlenecks.
+- Added direct official-source links inside the DYNA-VLM / DYNA-2 / DYNA-System0 / DYNA-SAUR architecture rows. Only DYNA-2 is linked as a standalone technical report; the other modules retain an explicit current-stack or related-demo boundary.
 - Centered metrics, stage selectors and process diagrams selectively while preserving left-aligned long-form reading text.
 - Increased desktop whitespace and normalized mobile padding. Light-theme body, muted and accent text pass WCAG AA contrast checks; visible form boundaries reach 3:1 against white.
 

@@ -393,6 +393,12 @@
     .pipeline{display:flex;max-width:880px;margin-inline:auto;flex-direction:column;gap:0}
     .pipe-row{display:grid;grid-template-columns:minmax(150px,200px) 40px minmax(0,1fr);align-items:center;gap:10px;padding:14px 8px}
     .pipe-row .node,.pipe-row .arrow{text-align:center}
+    .module-name{display:inline-flex;align-items:center;justify-content:center;gap:7px;color:var(--text);font-weight:850;text-decoration:none}
+    .module-name .external-mark{color:var(--cyan);font-size:.78rem}
+    .module-name:hover{color:var(--cyan)}
+    .module-copy{display:grid;gap:8px}
+    .module-refs{display:flex;flex-wrap:wrap;gap:7px}
+    .module-note{max-width:880px;margin:13px auto 0;padding:14px 17px;border-left:4px solid var(--blue);background:rgba(53,95,141,.08);color:var(--muted);font-size:.78rem;line-height:1.7}
     .diagram{overflow:auto}
     .diagram svg{display:block;width:100%;height:auto}
     .timeline details,.accordion details,.claim,.demo,.source{margin:11px 0;border:1px solid var(--line)}
@@ -933,6 +939,7 @@
       .brief-fact{display:grid;padding:10px 0;border-right:0;border-bottom:1px solid var(--line)}
       .pipe-row{grid-template-columns:1fr;text-align:center}
       .pipe-row .arrow{transform:rotate(90deg)}
+      .module-refs{justify-content:center}
       .ladder{grid-template-columns:1fr;align-items:stretch}
       .rung:nth-child(n){min-height:0;text-align:left}
       .detail-grid,.filters,.filter-secondary{grid-template-columns:1fr}
@@ -1116,6 +1123,14 @@ const coreBriefs={
   infrastructure:{kicker:'Systems thesis · 系统命题',title:'百万小时规模改变的不只是存储容量，而是整条训练路径上的主瓶颈。',body:'robotics sample 同时包含多相机、状态与动作窗口；格式、manifest、局部缓存、通信拓扑和故障恢复共同决定训练是否可重复。内部增益因此属于联合 redesign。',facts:[['Access unit','multimodal episode window'],['Hot path','NVMe + cluster-local cache'],['Evidence','internal · workload-specific']]}
 };
 Object.entries(coreBriefs).forEach(([id,b])=>{const lede=$(`#${id} > .lede`);if(!lede)return;const facts=b.facts.map(([k,v])=>`<div class="brief-fact"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');lede.insertAdjacentHTML('afterend',`<aside class="research-brief" aria-label="${esc(b.kicker)}"><div class="brief-main"><span class="brief-kicker">${esc(b.kicker)}</span><strong>${esc(b.title)}</strong><p>${esc(b.body)}</p></div><dl class="brief-facts">${facts}</dl></aside>`)});
+const systemModuleRefs=[
+  {name:'DYNA-VLM',primary:'DYN-S001',refs:[['DYN-S001','DYN-S001 · Official stack overview']]},
+  {name:'DYNA-2',primary:'DYN-S006',refs:[['DYN-S006','DYN-S006 · Technical report']]},
+  {name:'DYNA-System0',primary:'DYN-S001',refs:[['DYN-S001','DYN-S001 · Official stack overview']]},
+  {name:'DYNA-SAUR',primary:'DYN-S001',refs:[['DYN-S001','DYN-S001 · Official stack overview'],['DYN-S004','DYN-S004 · Related live-demo article']]}
+];
+$$('#system .pipe-row').forEach((row,i)=>{const spec=systemModuleRefs[i],node=row.querySelector('.node'),copy=row.children[2],source=spec&&sourceById.get(spec.primary);if(!spec||!node||!copy||!source)return;node.innerHTML=`<a class="module-name" href="${esc(source.url)}" target="_blank" rel="noopener noreferrer" title="${esc(source.title)}">${esc(spec.name)} <span class="external-mark" aria-hidden="true">↗</span></a>`;copy.classList.add('module-copy');copy.insertAdjacentHTML('beforeend',`<span class="module-refs">${spec.refs.map(([id,label])=>sourceAnchor(id,label)).join('')}</span>`)});
+$('#system .pipeline')?.insertAdjacentHTML('afterend','<p class="module-note"><b>Link boundary：</b>当前官方 Research Index 中，DYNA-2 有独立 technical report；DYNA-VLM、DYNA-System0 与 DYNA-SAUR 的公开链接主要指向官方 current-stack overview。DYNA-SAUR 另附的 DYNA-1i 页面是相关现场演示材料，不是完整硬件或接口文档。</p>');
 const toc=$('#toc');toc.insertAdjacentHTML('beforeend',tocGroups.map(([label,ids,tone])=>`<div class="toc-group ${tone}"><span>${esc(label)}</span>${ids.filter(id=>$('#'+id)).map(id=>`<a href="#${id}">${tocHTML(sectionTitles[id]||$('#'+id).dataset.title||id)}</a>`).join('')}</div>`).join(''));
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$('.toc a').forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id))}}),{rootMargin:'-20% 0px -70%'});sections.forEach(s=>obs.observe(s));
 addEventListener('scroll',()=>{$('#progressBar').style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100||0)+'%'});
