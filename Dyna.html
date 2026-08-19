@@ -47,11 +47,38 @@
     }
     .toc a:hover,.toc a.active{background:rgba(101,216,209,.10);border-color:rgba(101,216,209,.22);color:var(--text)}
     .hero{
+      position:relative;
       min-height:auto;
-      padding:84px 0 34px;
-      margin-bottom:6px;
-      border-bottom:1px solid var(--line);
+      margin:22px 0 18px;
+      padding:92px 28px 30px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(101,216,209,.12), transparent 26%),
+        radial-gradient(circle at 0% 0%, rgba(255,180,94,.08), transparent 24%),
+        linear-gradient(180deg, rgba(20,26,23,.98), rgba(14,18,16,.98));
+      box-shadow:0 30px 70px rgba(0,0,0,.26);
+      overflow:hidden;
     }
+    [data-theme="light"] .hero{
+      border-color:rgba(0,0,0,.08);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(49,95,159,.08), transparent 26%),
+        radial-gradient(circle at 0% 0%, rgba(255,180,94,.07), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(247,249,243,.98));
+      box-shadow:0 24px 48px rgba(29,37,31,.10);
+    }
+    .hero::after{
+      content:"DILIGENCE REPORT";
+      position:absolute;
+      top:22px;
+      right:28px;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.26em;
+      color:rgba(255,255,255,.24);
+    }
+    [data-theme="light"] .hero::after{color:rgba(23,32,25,.28)}
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -69,6 +96,48 @@
     .hero h1{max-width:1040px;font-size:clamp(3rem,6vw,6.1rem);line-height:.93;letter-spacing:-.05em}
     .hero h1 span{display:block;margin-top:10px;font-size:.42em;line-height:1.25;letter-spacing:-.02em;color:var(--muted)}
     .subtitle{max-width:980px;font-size:1.03rem;line-height:1.85;color:#c0cdc6}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:24px;
+    }
+    .hero-card{
+      position:relative;
+      padding:16px 16px 15px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;
+      height:4px;
+      background:linear-gradient(90deg, var(--section-accent, var(--cyan)), rgba(255,255,255,0));
+      opacity:.92;
+    }
+    .hero-card:nth-child(1){--section-accent:var(--cyan)}
+    .hero-card:nth-child(2){--section-accent:var(--orange)}
+    .hero-card:nth-child(3){--section-accent:var(--blue)}
+    [data-theme="light"] .hero-card{background:rgba(255,255,255,.82);border-color:rgba(0,0,0,.08)}
+    .hero-card span{
+      display:block;
+      margin-bottom:8px;
+      color:var(--section-accent, var(--cyan));
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .hero-card p{
+      margin:0;
+      color:var(--text);
+      font-size:.94rem;
+      line-height:1.72;
+    }
     .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
     .meta{
       padding:8px 12px;
@@ -113,8 +182,8 @@
     section.section{
       position:relative;
       margin:0 0 18px;
-      padding:26px 24px 24px;
-      border-radius:26px;
+      padding:30px 24px 24px;
+      border-radius:28px;
       border:1px solid rgba(255,255,255,.08);
       background:linear-gradient(180deg, rgba(23,29,26,.96), rgba(18,23,20,.95));
       box-shadow:0 18px 42px rgba(0,0,0,.16);
@@ -136,6 +205,17 @@
       width:6px;
       background:linear-gradient(180deg, var(--section-accent, var(--cyan)), rgba(255,255,255,0));
       opacity:.95;
+    }
+    section.section::after{
+      content:attr(data-title);
+      position:absolute;
+      top:18px;
+      right:22px;
+      font-size:.7rem;
+      font-weight:800;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:color-mix(in srgb, var(--section-accent, var(--cyan)) 52%, var(--muted));
     }
     .section-head{
       display:grid;
@@ -163,9 +243,9 @@
       letter-spacing:.08em;
     }
     h2{
-      font-size:clamp(1.08rem,1.8vw,1.42rem);
-      letter-spacing:.12em;
-      line-height:1.25;
+      font-size:clamp(1.12rem,2vw,1.56rem);
+      letter-spacing:.10em;
+      line-height:1.15;
       color:var(--text);
     }
     .lede{
@@ -178,8 +258,8 @@
     .card,details,.diagram,.table-wrap,.source,.accordion,.pipeline,.score-chart,.stage-detail{
       background:linear-gradient(180deg, rgba(29,37,33,.92), rgba(22,27,24,.92));
       border:1px solid rgba(255,255,255,.08);
-      border-radius:20px;
-      box-shadow:0 12px 28px rgba(0,0,0,.14);
+      border-radius:22px;
+      box-shadow:0 14px 32px rgba(0,0,0,.16);
     }
     [data-theme="light"] .card,[data-theme="light"] details,[data-theme="light"] .diagram,[data-theme="light"] .table-wrap,[data-theme="light"] .source,[data-theme="light"] .accordion,[data-theme="light"] .pipeline,[data-theme="light"] .score-chart,[data-theme="light"] .stage-detail{
       background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,249,244,.98));
@@ -189,7 +269,7 @@
     .card{
       position:relative;
       overflow:hidden;
-      padding:18px 18px 16px;
+      padding:20px 20px 18px;
     }
     .card::before{
       content:"";
@@ -200,7 +280,7 @@
       background:linear-gradient(90deg, var(--section-accent, var(--cyan)), rgba(255,255,255,0));
       opacity:.95;
     }
-    .card h3{margin-top:0;font-size:1.08rem;letter-spacing:.01em}
+    .card h3{margin-top:0;font-size:1.12rem;letter-spacing:.01em}
     .card p,.card li{line-height:1.72}
     .callout{
       border-radius:18px;
@@ -216,7 +296,10 @@
       color:var(--text);
     }
     .badge{font-weight:800;letter-spacing:.05em}
-    .metric{font-size:2rem;letter-spacing:-.04em}
+    .metric{font-size:2.1rem;letter-spacing:-.04em}
+    .evidence-card ol{display:grid;gap:12px;margin:0;padding-left:20px}
+    .evidence-card li{padding-left:2px}
+    .hero .boundary{margin-bottom:0}
     .g2,.g3,.g4{gap:14px}
     .table-wrap{overflow:auto}
     table{border-collapse:separate;border-spacing:0;width:100%}
@@ -232,7 +315,7 @@
     .source-id,.claim-id{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
     .backtop{background:rgba(23,29,26,.92);border-color:rgba(255,255,255,.08)}
     @media(max-width:900px){.layout{grid-template-columns:1fr}.toc{top:58px}.g3,.g4{grid-template-columns:repeat(2,1fr)}.detail-grid{grid-template-columns:1fr 1fr}.filters,.filter-secondary{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.layout{padding:0 14px 32px}.hero{padding:62px 0 24px}.hero h1{font-size:clamp(2.3rem,11vw,4rem)}section.section{padding:22px 16px 18px;border-radius:22px}.section-head{grid-template-columns:auto 1fr}.g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}.pipe-row{grid-template-columns:1fr}.pipe-row .arrow{transform:rotate(90deg)}.ladder{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.filters,.filter-secondary{grid-template-columns:1fr}.claim summary{grid-template-columns:74px 1fr}.claim summary .risk{grid-column:2;width:max-content}.source{grid-template-columns:72px 1fr}.source>a{grid-column:2}.score-chart{gap:4px;padding:0}.bar i{width:56%}.topbar .brand{max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+    @media(max-width:620px){.layout{padding:0 14px 32px}.hero{padding:58px 16px 20px;border-radius:24px}.hero h1{font-size:clamp(2.3rem,11vw,4rem)}.hero-grid{grid-template-columns:1fr}.hero::after{top:16px;right:16px;letter-spacing:.16em}.toc{border-radius:22px}.section-head{grid-template-columns:auto 1fr}.section.section{padding:22px 16px 18px;border-radius:22px}.section.section::after{top:14px;right:16px;font-size:.64rem;letter-spacing:.16em}.g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}.pipe-row{grid-template-columns:1fr}.pipe-row .arrow{transform:rotate(90deg)}.ladder{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.filters,.filter-secondary{grid-template-columns:1fr}.claim summary{grid-template-columns:74px 1fr}.claim summary .risk{grid-column:2;width:max-content}.source{grid-template-columns:72px 1fr}.source>a{grid-column:2}.score-chart{gap:4px;padding:0}.bar i{width:56%}.topbar .brand{max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
     @media print{:root{--bg:#fff;--panel:#fff;--panel2:#f4f4f4;--text:#111;--muted:#444;--line:#bbb;--lime:#315000;--cyan:#005f5b;color-scheme:light}.topbar,.toc,.progress,.backtop,.copy-link,.filters,.filter-secondary,.filter-btn{display:none!important}.layout{display:block;max-width:none;padding:0}.hero{min-height:auto;padding:24px 0}.section{padding:28px 0;break-before:page}.card,details,.diagram,.table-wrap,.source{break-inside:avoid}details>*{display:block!important}details summary{list-style:none}.claim-list .claim{display:block!important}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8pt;color:#555}h1{font-size:38pt}.score-chart{height:180px}}
   </style>
@@ -249,6 +332,11 @@
     <p class="subtitle">从百万小时人类视频、World-Action Model 到生产级机器人基础设施。面向机器人研究人员的技术教程、scientific claim audit 与 deployment evidence audit。</p>
     <div class="meta-row"><span class="meta">Research cutoff · 2026-08-18</span><span class="meta">Published · 2026-08-19</span><span class="meta">Version · Dyna.html v1</span></div>
     <div class="thesis-flow" aria-label="本报告形成的研究综合"><span class="node">human-video pre-training</span><span class="arrow">→</span><span class="node">transferable representation</span><span class="arrow">→</span><span class="node">task-specific robot post-training</span><span class="arrow">→</span><span class="node">production deployment</span><span class="arrow">→</span><span class="node">failure / deployment feedback</span></div>
+    <div class="hero-grid" aria-label="封面摘要卡">
+      <article class="hero-card"><span>Core judgment / 核心判断</span><p>Dyna 的可审计亮点主要在 human-video scaling、WAM 训练目标与任务级 post-training，而不是已公开的端到端自主系统。</p></article>
+      <article class="hero-card"><span>Evidence posture / 证据姿态</span><p>internal evaluation 强于 deployment evidence；public demo、company wording 与 independent verification 严格分开。</p></article>
+      <article class="hero-card"><span>Reading mode / 阅读方式</span><p>把它当作 technical diligence report + robot-learning tutorial + claim audit，不要当成产品宣传页。</p></article>
+    </div>
     <p class="boundary"><span class="badge" data-code="RI" title="Research Inference">RI · Research Inference</span> 这是本报告基于公开材料形成的综合，不是 Dyna 官方完整系统图。</p>
   </section>
 
