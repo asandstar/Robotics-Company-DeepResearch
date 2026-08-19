@@ -30,13 +30,11 @@
 
 主题：家庭机器人、Memory Glove、human demonstration、ACT、Diffusion Policy、deformable manipulation、force control、recovery、generalization、home robot safety。
 
-### Dyna Robotics
+### [Dyna Robotics](./Dyna.html)
 
-**状态：Research in progress**
+**状态：Published — 已有完整研究报告**
 
-未来报告入口：`./Dyna.html`（本轮尚未创建，避免产生失效链接）。
-
-主题：commercial robotics、foundation models、DYNA-1、DYNA-1i、DYNA-2、World-Action Models、human-video scaling、cross-embodiment transfer、post-training、production deployment、robotics data infrastructure。
+主题：human-video scaling、World-Action Models、cross-embodiment、task-specific post-training、million-hour infrastructure、commercial deployment 与 evidence auditing。
 
 当前可审计材料：
 
@@ -87,7 +85,7 @@ docs/reports/                      带日期的审计与版本报告
 .github/workflows/deploy-pages.yml GitHub Pages 发布工作流
 ```
 
-GitHub Pages 当前只发布门户和已完成的 Sunday 报告。研究中的 Dyna 文档保留在仓库内，直到完成独立审阅后再决定是否生成 `Dyna.html`。
+GitHub Pages 发布研究门户、Sunday 报告与 [Dyna 交互式技术尽调报告](./Dyna.html)。结构化 Dyna registries 与审计底稿继续保留为页面的 source of truth。
 
 ## Update policy
 
@@ -99,8 +97,6 @@ GitHub Pages 当前只发布门户和已完成的 Sunday 报告。研究中的 D
 
 ## Companies roadmap
 
-1. 完成 Dyna 的公开研究基线与人工复核。
-2. 在证据登记表稳定后设计并生成 `Dyna.html`。
-3. 对 Sunday 与 Dyna 建立可比的 deployment、generalization、safety 和 adaptation-cost 字段。
-4. 逐步加入其他具有明确技术路线与可审计公开材料的机器人公司。
-5. 建立跨公司的 benchmark、claim strength 和证据缺口比较视图。
+1. 对 Sunday 与 Dyna 建立可比的 deployment、generalization、safety 和 adaptation-cost 字段。
+2. 逐步加入其他具有明确技术路线与可审计公开材料的机器人公司。
+3. 建立跨公司的 benchmark、claim strength 和证据缺口比较视图。
