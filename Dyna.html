@@ -889,6 +889,58 @@
     html[data-theme="dark"] th{background:var(--panel2)!important}
     html[data-theme="dark"] tr:nth-child(even) td{background:rgba(255,255,255,.025)!important}
     html[data-theme="dark"] .claim summary,html[data-theme="dark"] .demo summary{background:var(--panel)}
+    .research-index-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}
+    .research-index-card{
+      --study-accent:var(--cyan);position:relative;display:flex;min-height:190px;flex-direction:column;padding:18px 16px 16px;
+      overflow:hidden;border:1px solid var(--line);border-radius:18px;background:linear-gradient(150deg,#fff,rgba(22,126,120,.055));
+      box-shadow:0 8px 22px rgba(39,58,48,.05);transition:transform .18s ease,border-color .18s ease
+    }
+    .research-index-card:nth-child(2){--study-accent:var(--orange);background:linear-gradient(150deg,#fff,rgba(185,108,46,.06))}
+    .research-index-card:nth-child(3){--study-accent:var(--blue);background:linear-gradient(150deg,#fff,rgba(66,107,150,.06))}
+    .research-index-card:nth-child(4){--study-accent:var(--lime);background:linear-gradient(150deg,#fff,rgba(110,135,56,.07))}
+    .research-index-card:nth-child(5){--study-accent:var(--red);background:linear-gradient(150deg,#fff,rgba(165,74,66,.055))}
+    .research-index-card::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--study-accent),transparent)}
+    .research-index-card:hover{transform:translateY(-3px);border-color:var(--study-accent)}
+    .research-index-card .study-no{color:var(--study-accent);font-size:.66rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .research-index-card strong{margin-top:18px;font-family:"Iowan Old Style","Noto Serif SC","Songti SC",Georgia,serif;font-size:1.1rem;line-height:1.25}
+    .research-index-card p{margin:8px 0 16px;color:var(--muted);font-size:.76rem;line-height:1.65}
+    .research-index-card .study-date{margin-top:auto;color:var(--study-accent);font-size:.68rem;font-weight:800}
+    .study-dossier{--study-accent:var(--cyan)}
+    .study-dossier.study-2{--study-accent:var(--orange)}
+    .study-dossier.study-3{--study-accent:var(--blue)}
+    .study-dossier.study-4{--study-accent:var(--lime)}
+    .study-dossier.study-5{--study-accent:var(--red)}
+    .study-masthead{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(230px,.75fr);gap:22px;margin:4px 0 22px;padding:24px;border:1px solid color-mix(in srgb,var(--study-accent) 32%,var(--line));border-radius:22px;background:linear-gradient(135deg,color-mix(in srgb,var(--study-accent) 10%,#fff),#fff 66%)}
+    .study-kicker{display:block;color:var(--study-accent);font-size:.69rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .study-question{display:block;margin-top:12px;font-family:"Iowan Old Style","Noto Serif SC","Songti SC",Georgia,serif;font-size:clamp(1.35rem,2.7vw,2rem);font-weight:720;line-height:1.28;letter-spacing:-.018em}
+    .study-metadata{display:grid;align-content:start;gap:9px;padding-left:20px;border-left:1px solid var(--line)}
+    .study-metadata span{display:block;color:var(--muted);font-size:.72rem;line-height:1.55}
+    .study-metadata b{display:block;color:var(--text);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase}
+    .audit-bands{display:grid;gap:13px}
+    .audit-band{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff}
+    .audit-cell{min-width:0;padding:19px 18px;border-right:1px solid var(--line)}
+    .audit-cell:last-child{border-right:0}
+    .audit-cell b{display:block;margin-bottom:8px;color:var(--study-accent);font-size:.66rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .audit-cell p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.72}
+    .audit-band.conclusion{background:linear-gradient(135deg,color-mix(in srgb,var(--study-accent) 6%,#fff),#fff)}
+    .study-figure{margin:18px 0;padding:21px;border:1px solid var(--line);border-radius:20px;background:var(--panel2)}
+    .study-figure-title{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-bottom:16px}
+    .study-figure-title b{font-family:"Iowan Old Style","Noto Serif SC","Songti SC",Georgia,serif;font-size:1.15rem}
+    .study-figure-title span{color:var(--muted);font-size:.7rem}
+    .progression{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;align-items:stretch}
+    .progression-step{position:relative;padding:15px;border-radius:15px;border:1px solid var(--line);background:var(--panel)}
+    .progression-step:not(:last-child)::after{content:"→";position:absolute;z-index:2;right:-12px;top:50%;transform:translateY(-50%);color:var(--study-accent);font-weight:900}
+    .progression-step b{display:block;color:var(--study-accent);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+    .progression-step span{display:block;margin-top:7px;font-size:.8rem;line-height:1.55}
+    .condition-rows{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .condition-row{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+    .condition-row .metric{color:var(--study-accent)}
+    .evidence-route{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .evidence-route>div{padding:16px;border:1px solid var(--line);border-radius:15px;background:var(--panel)}
+    .evidence-route b{display:block;color:var(--study-accent);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+    .evidence-route span{display:block;margin-top:7px;color:var(--muted);font-size:.78rem;line-height:1.6}
+    html[data-theme="dark"] .research-index-card,html[data-theme="dark"] .study-masthead,html[data-theme="dark"] .audit-band{background:linear-gradient(145deg,#1b2420,color-mix(in srgb,var(--study-accent) 6%,#1b2420));border-color:rgba(255,255,255,.1);box-shadow:none}
+    html[data-theme="dark"] .audit-band.conclusion{background:linear-gradient(145deg,#1b2420,color-mix(in srgb,var(--study-accent) 9%,#1b2420))}
     .backtop{color:#fff;background:#24443a;border-color:rgba(255,255,255,.2);box-shadow:0 12px 28px rgba(27,49,40,.18)}
     :where(a,button,input,select,summary,.term):focus-visible{outline:3px solid rgba(22,126,120,.45);outline-offset:3px}
     @media(max-width:900px){
@@ -903,6 +955,11 @@
       .hero{min-height:auto;padding:76px 34px 36px}
       .chapter-head,.chapter .section,section.section{padding-left:32px;padding-right:32px}
       .g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .research-index-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .audit-band{grid-template-columns:1fr 1fr}
+      .audit-cell{border-bottom:1px solid var(--line)}
+      .audit-cell:nth-child(2n){border-right:0}
+      .audit-cell:last-child{grid-column:1/-1;border-bottom:0}
       #stageButtons{grid-template-columns:repeat(3,minmax(0,1fr))}
       .detail-grid,.filters,.filter-secondary{grid-template-columns:repeat(2,minmax(0,1fr))}
       .research-brief{grid-template-columns:1fr}
@@ -931,6 +988,13 @@
       .chapter-map{gap:6px}
       .chapter-map a{font-size:.69rem}
       .g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}
+      .research-index-grid,.audit-band,.condition-rows,.evidence-route,.progression{grid-template-columns:1fr}
+      .research-index-card{min-height:0}
+      .study-masthead{grid-template-columns:1fr;padding:20px}
+      .study-metadata{padding:16px 0 0;border-top:1px solid var(--line);border-left:0}
+      .audit-cell,.audit-cell:nth-child(2n),.audit-cell:last-child{grid-column:auto;border-right:0;border-bottom:1px solid var(--line)}
+      .audit-cell:last-child{border-bottom:0}
+      .progression-step:not(:last-child)::after{content:"↓";right:auto;top:auto;bottom:-18px;left:50%;transform:translateX(-50%)}
       #stageButtons{grid-template-columns:1fr}
       #stageButtons::before{display:none}
       #stageButtons .stage[aria-pressed="true"]{transform:none}
@@ -962,12 +1026,12 @@
       .topbar .brand{max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
-    @media print{:root{--bg:#fff;--panel:#fff;--panel2:#f4f4f4;--text:#111;--muted:#444;--line:#bbb;--lime:#315000;--cyan:#005f5b;color-scheme:light}.topbar,.toc,.progress,.backtop,.copy-link,.filters,.filter-secondary,.filter-btn,.glossary-toolbar{display:none!important}.layout{display:block;max-width:none;padding:0}.hero{min-height:auto;padding:24px 0}.section{padding:28px 0;break-before:page}.card,details,.diagram,.table-wrap,.source,.term,.research-brief{break-inside:avoid}details>*{display:block!important}details summary{list-style:none}.claim-list .claim{display:block!important}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8pt;color:#555}h1{font-size:38pt}.score-chart{height:180px}}
+    @media print{:root{--bg:#fff;--panel:#fff;--panel2:#f4f4f4;--text:#111;--muted:#444;--line:#bbb;--lime:#315000;--cyan:#005f5b;color-scheme:light}.topbar,.toc,.progress,.backtop,.copy-link,.filters,.filter-secondary,.filter-btn,.glossary-toolbar{display:none!important}.layout{display:block;max-width:none;padding:0}.hero{min-height:auto;padding:24px 0}.section{padding:28px 0;break-before:page}.card,details,.diagram,.table-wrap,.source,.term,.research-brief,.study-masthead,.audit-band,.study-figure,.research-index-card{break-inside:avoid}details>*{display:block!important}details summary{list-style:none}.claim-list .claim{display:block!important}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8pt;color:#555}h1{font-size:38pt}.score-chart{height:180px}}
   </style>
 </head>
 <body>
 <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
-<header class="topbar"><div class="topbar-inner"><button class="icon-btn menu-btn" id="menuBtn" aria-label="打开目录" aria-expanded="false">☰</button><a class="brand" href="#cover">DYNA / TECHNICAL DILIGENCE v1</a><div class="top-actions"><button class="icon-btn" id="themeBtn" aria-label="切换深浅模式">◐</button><button class="icon-btn" onclick="window.print()" aria-label="打印或导出 PDF">Print</button></div></div></header>
+<header class="topbar"><div class="topbar-inner"><button class="icon-btn menu-btn" id="menuBtn" aria-label="打开目录" aria-expanded="false">☰</button><a class="brand" href="#cover">DYNA / TECHNICAL DILIGENCE v1.1</a><div class="top-actions"><button class="icon-btn" id="themeBtn" aria-label="切换深浅模式">◐</button><button class="icon-btn" onclick="window.print()" aria-label="打印或导出 PDF">Print</button></div></div></header>
 <div class="layout">
 <nav class="toc" id="toc" aria-label="报告目录"><strong>CONTENTS / 目录</strong></nav>
 <main id="main">
@@ -975,7 +1039,7 @@
     <div class="kicker">Dyna Robotics · Interactive technical diligence / 交互式技术尽调</div>
     <h1>Dyna Robotics 深度研究报告<span>Human-Video Scaling, World-Action Models, Robot Infrastructure and Production Deployment</span></h1>
     <p class="subtitle">从百万小时人类视频、World-Action Model 到生产级机器人基础设施。面向机器人研究人员的技术教程、scientific claim audit 与 deployment evidence audit。</p>
-    <div class="meta-row"><span class="meta">Research cutoff · 2026-08-18</span><span class="meta">Published · 2026-08-19</span><span class="meta">Version · Dyna.html v1</span></div>
+    <div class="meta-row"><span class="meta">Research cutoff · 2026-08-18</span><span class="meta">Published · 2026-08-19</span><span class="meta">Revised · 2026-08-19</span><span class="meta">Version · Dyna.html v1.1</span></div>
     <div class="thesis-flow" aria-label="本报告形成的研究综合"><span class="node">human-video pre-training</span><span class="arrow">→</span><span class="node">transferable representation</span><span class="arrow">→</span><span class="node">task-specific robot post-training</span><span class="arrow">→</span><span class="node">production deployment</span><span class="arrow">→</span><span class="node">failure / deployment feedback</span></div>
     <div class="hero-grid" aria-label="封面摘要卡">
       <article class="hero-card"><span>Core judgment / 核心判断</span><p>Dyna 的可审计亮点主要在 human-video scaling、WAM 训练目标与任务级 post-training，而不是已公开的端到端自主系统。</p></article>
@@ -993,15 +1057,92 @@
 
   <section class="section" id="thesis" data-title="Company thesis"><div class="section-head"><span class="num">02</span><h2>Company Thesis</h2></div><p class="lede">Dyna 将规模化矛盾放在 physical economy：机器人真实交互数据稀缺、部署长尾失败昂贵，而人类第一视角视频提供更宽的物理活动覆盖。公开路线从单任务长期可靠性，逐步转向 human-video representation 与部署后 robot post-training 的组合。</p><div class="g2 grid"><div class="card"><h3>Loop A · breadth</h3><p>human egocentric video → pseudo-action / future-video objectives → transferable representation。</p></div><div class="card"><h3>Loop B · grounding</h3><p>task-specific robot data → physical post-training → deployment failures → 下一轮数据与恢复。</p></div></div><div class="callout info" style="margin-top:14px"><b>Two-loop interpretation · RI</b>：这是研究归纳；Dyna 没有公开把路线命名为 “two-loop strategy”。</div></section>
 
+  <section class="section" id="research-index" data-title="Official research coverage">
+    <div class="section-head"><span class="num">02A</span><h2>Official Research Index Coverage</h2></div>
+    <p class="lede">截至研究截止日，Dyna 官方 Research Index 列出五项工作。这里不是用同样字数制造表面对称，而是用同一套九维审计框架逐项回答：研究问题、承接关系、数据、机制、协议、结果、直接支持、不支持与剩余瓶颈。</p>
+    <div class="research-index-grid" aria-label="五项官方研究覆盖矩阵">
+      <a class="research-index-card" href="#study-dyna1"><span class="study-no">Study 01 · CT</span><strong>Dynamism v1<br>DYNA-1</strong><p>长时可靠性、reward model、恢复与 deployment feedback。</p><span class="study-date">2025-06-24 · DYN-S003</span></a>
+      <a class="research-index-card" href="#study-dyna1i"><span class="study-no">Study 02 · CT</span><strong>Open-World Dexterity<br>DYNA-1i</strong><p>环境迁移、30 分钟条件行与公开 live demo。</p><span class="study-date">Index: 2025-10-15 · DYN-S004</span></a>
+      <a class="research-index-card" href="#study-pretraining"><span class="study-no">Study 03 · CT</span><strong>DYNA-1<br>Pre-Training</strong><p>selected zero-shot behavior 与低数据 adaptation。</p><span class="study-date">2025-11-20 · DYN-S005</span></a>
+      <a class="research-index-card" href="#study-dyna2"><span class="study-no">Study 04 · OR</span><strong>Dyna-2<br>Scaling Law</strong><p>human-video scaling、WAM、cross-embodiment 与 post-training。</p><span class="study-date">2026-08-15 · DYN-S006</span></a>
+      <a class="research-index-card" href="#study-infrastructure"><span class="study-no">Study 05 · OR</span><strong>Dyna-2<br>Infrastructure</strong><p>让 million-hour experiments 可启动、可供数、可恢复。</p><span class="study-date">2026-08-17 · DYN-S007</span></a>
+    </div>
+    <div class="callout info" style="margin-top:18px"><b>Coverage rule.</b> 五项均有直接官方链接、同构九维审计和明确 evidence boundary。Dyna-2 篇幅仍最长，因为其 technical report 的实验披露显著更完整；深度对齐指问题覆盖对齐，不是把未知信息填成推测。</div>
+  </section>
+
   <section class="chapter" id="chapter-core" data-title="03-10 · Core technical stack">
     <div class="chapter-head">
       <div class="kicker">Chapter 1</div>
       <h2>Core technical stack / 核心技术主线</h2>
-      <p class="lede">把 Dyna 的研究主线合并阅读：时间线、系统架构、数据引擎、扩展阶梯、证据三阶段、WAM 与 WAM vs VLA 共同构成一条完整技术链。</p>
-      <p class="chapter-argument">本章的阅读重点不是把模块名称串成一张产品架构图，而是逐层回答三个问题：human video 究竟提供了什么监督，什么变量真正随规模变化，以及真机结论在哪一步重新引入 robot data。只有把这三层拆开，20 → 28 → 45 → 53 才不会被误读成通用成功率。</p>
-      <nav class="chapter-map" aria-label="核心技术主线章节索引"><a href="#timeline"><b>03</b>研究演化</a><a href="#system"><b>04</b>系统分层</a><a href="#data-engine"><b>05</b>数据引擎</a><a href="#scaling-ladder"><b>06</b>扩展变量</a><a href="#stages"><b>07–08</b>证据链</a><a href="#wam"><b>09–10</b>WAM</a></nav>
+      <p class="lede">先按公开发布日期阅读五项官方研究，再进入系统架构、数据引擎、扩展阶梯、三级证据链与 WAM 深挖。研究路线从单任务恢复，经过环境迁移与预训练，才进入 million-hour scale。</p>
+      <p class="chapter-argument">本章同时回答两组问题：每一代工作承接了前一代的哪个 bottleneck；Dyna-2 中 human video 究竟提供什么监督、什么变量真正随规模变化、真机结论在哪一步重新引入 robot data。按这条顺序阅读，早期证据不会被 Dyna-2 遮蔽，20 → 28 → 45 → 53 也不会被误读成通用成功率。</p>
+      <nav class="chapter-map" aria-label="核心技术主线章节索引"><a href="#timeline"><b>03</b>总时间线</a><a href="#study-dyna1"><b>S01</b>DYNA-1</a><a href="#study-dyna1i"><b>S02</b>DYNA-1i</a><a href="#study-pretraining"><b>S03</b>Pre-Training</a><a href="#study-dyna2"><b>S04</b>Dyna-2</a><a href="#system"><b>04–10</b>技术深挖</a></nav>
     </div>
   <section class="section" id="timeline" data-title="Research timeline"><div class="section-head"><span class="num">03</span><h2>Research Evolution Timeline</h2></div><p class="lede">点击阶段展开 Problem、Data、Model、Evaluation、Deployment 与 remaining bottleneck。</p><div class="timeline" id="timelineList"></div></section>
+
+  <section class="section study-dossier study-1" id="study-dyna1" data-title="Study 01 · DYNA-1">
+    <div class="section-head"><span class="num">S01</span><h2>Dynamism v1 / DYNA-1</h2></div>
+    <div class="study-masthead">
+      <div><span class="study-kicker">Study 01 · Reliability before breadth</span><strong class="study-question">一个在单次尝试中表现良好的 manipulation policy，怎样跨越数百次连续执行中的罕见失败？</strong></div>
+      <div class="study-metadata"><span><b>Official source</b><a href="https://www.dyna.co/research/dyna-1" target="_blank" rel="noopener noreferrer">Dynamism v1 (DYNA-1) ↗</a></span><span><b>Publication</b>2025-06-24</span><span><b>Evidence type</b>Company technical post · internal evaluation</span></div>
+    </div>
+    <div class="study-figure" aria-label="DYNA-1 deployment learning loop">
+      <div class="study-figure-title"><b>Deployment experience as training signal</b><span>Research redraw · not an official system diagram</span></div>
+      <div class="progression"><div class="progression-step"><b>Continuous runtime</b><span>真实执行暴露罕见状态与失败。</span></div><div class="progression-step"><b>Stream segmentation</b><span>把连续 episode 切分为可学习的 progress segments。</span></div><div class="progression-step"><b>Foundation reward model</b><span>估计任务进度，为恢复与数据筛选提供信号。</span></div><div class="progression-step"><b>Policy update</b><span>失败经验回到训练，再部署到同类任务。</span></div></div>
+    </div>
+    <div class="audit-bands">
+      <div class="audit-band"><div class="audit-cell"><b>1 · Research question</b><p>目标不是一次性完成 napkin folding，而是降低长时间运行中 compounding errors：检测偏离、估计进度并从异常状态继续。</p></div><div class="audit-cell"><b>2 · Why it followed</b><p>这是公开路线的起点。它把商业 manipulation 的核心瓶颈从“会不会做”定义为“能否在长尾失败下持续做”。后续 DYNA-1i 才把焦点推向环境变化。</p></div><div class="audit-cell"><b>3 · Data</b><p>官方描述 deployment/runtime experience 与自动 stream segmentation，但未公开训练小时数、episode 数、失败分布、人工 QA 或 reward labels 的准确率。</p></div></div>
+      <div class="audit-band"><div class="audit-cell"><b>4 · Model / mechanism</b><p>公开定位是 DYNA-1 VLA 加 foundation reward model：reward model 估计 progress，帮助组织 autonomous experience 与 recovery。backbone、action representation 和训练 recipe 未披露。</p></div><div class="audit-cell"><b>5 · Evaluation protocol</b><p>核心量化证据是一场公司内部 24-hour napkin run；还给出 selected recovery examples、客户现场 zero-shot 后再训练的叙述，以及公司内部五级质量 rubric。</p></div><div class="audit-cell"><b>6 · Reported results</b><p>公司报告 850+ folds、99.4% task success、zero interventions、约为未定义 human baseline 的 60% speed；质量上 98% 达 grade ≥3、75% 达 grade ≥4。[DYN-C003–012]</p></div></div>
+      <div class="audit-band conclusion"><div class="audit-cell"><b>7 · Directly supported</b><p>支持“Dyna 在一个内部 napkin setup 上报告了长时连续结果，并公开描述 reward/progress feedback loop”。也支持公司曾展示 customer-site generalization degradation 后继续训练。</p></div><div class="audit-cell"><b>8 · Not established</b><p>没有公开完整 attempt log、reset policy、failure taxonomy、off-camera handling、独立观察者或跨任务复现。zero interventions 也不说明 loading、supervision 与维护无人参与。</p></div><div class="audit-cell"><b>9 · Remaining bottleneck</b><p>在同一工作站学会恢复，不等于跨光照、背景、摄像机、物品与现场稳定迁移；这正是 DYNA-1i 要处理的下一层问题。</p></div></div>
+    </div>
+    <div class="callout danger" style="margin-top:18px"><b>Six-week progression boundary.</b> 官方页面展示的部署改进轨迹只能称为 company-reported progression；它不是受控 learning curve。不同 checkpoint、配置、数据增量和现场条件是否可比均未公开，不能据此拟合收敛速度或普遍样本效率。</div>
+  </section>
+
+  <section class="section study-dossier study-2" id="study-dyna1i" data-title="Study 02 · DYNA-1i">
+    <div class="section-head"><span class="num">S02</span><h2>Open-World Dexterity / DYNA-1i</h2></div>
+    <div class="study-masthead">
+      <div><span class="study-kicker">Study 02 · Robustness across selected environments</span><strong class="study-question">当任务保持为 laundry folding，但视觉背景和现场条件变化时，DYNA-1 的可靠性还能保留多少？</strong></div>
+      <div class="study-metadata"><span><b>Official source</b><a href="https://www.dyna.co/research/open-world-dexterity" target="_blank" rel="noopener noreferrer">Open-World Dexterity ↗</a></span><span><b>Date metadata</b>Index: 2025-10-15 · article: December 2025</span><span><b>Evidence type</b>Company technical post · internal rows + public demo</span></div>
+    </div>
+    <div class="study-figure">
+      <div class="study-figure-title"><b>Two disclosed 30-minute condition rows</b><span>Company-run · no independent repeats</span></div>
+      <div class="condition-rows"><div class="condition-row"><span class="study-kicker">Seen · Office</span><div class="metric">22 shirts</div><p>30 min · about 40/hour · average quality about grade 3+</p></div><div class="condition-row"><span class="study-kicker">Unseen · “Lobby / Parking / CoRL”</span><div class="metric">20 shirts</div><p>single reported 30-minute row · about 40/hour · average quality about grade 3+</p></div></div>
+    </div>
+    <div class="audit-bands">
+      <div class="audit-band"><div class="audit-cell"><b>1 · Research question</b><p>把 on-task reliability 与 environment generalization 分开：在 office stations 上 post-train 后，选择的 unseen conditions 是否仍能连续完成 shirt folding？</p></div><div class="audit-cell"><b>2 · Why it followed</b><p>DYNA-1 已说明单环境长期运行的重要性；客户现场的 zero-shot degradation 暴露了下一瓶颈：同一 task 在新背景与布置下仍可能失效。</p></div><div class="audit-cell"><b>3 · Data</b><p>公司称使用完全在办公室采集的“tens of hours” post-training data，并提到 handful of stations。确切小时、station 数、shirt 分布、被拒轨迹与 checkpoint 未披露。</p></div></div>
+      <div class="audit-band"><div class="audit-cell"><b>4 · Model / mechanism</b><p>仍属于 DYNA-1 VLA lineage 的改进版。公开材料没有隔离增益究竟来自 station diversity、augmentation、architecture change、reward model 或其他 recipe 变化。</p></div><div class="audit-cell"><b>5 · Evaluation protocol</b><p>两行均为 30-minute continuous trial。Seen 是 Office；Unseen 被标为一个合并的 “Lobby / Parking / CoRL” 行。文章另叙述三天公开 demo 与 disturbance recovery。</p></div><div class="audit-cell"><b>6 · Reported results</b><p>Seen：22 shirts；Unseen combined row：20 shirts；两者均约 40/hour、平均质量约 grade 3+。页面没有置信区间、repeat count 或完整 failure log。[DYN-C061–063]</p></div></div>
+      <div class="audit-band conclusion"><div class="audit-cell"><b>7 · Directly supported</b><p>支持“公司在一个 seen row 与一个合并 unseen row 中报告了相近短窗口 throughput/quality”，以及系统曾在公开会议环境被展示。</p></div><div class="audit-cell"><b>8 · Not established</b><p>不支持把 Lobby、Parking、CoRL 写成三个各自 30 分钟实验，也不支持 unrestricted open-world generalization、独立复现或生产 uptime。公开 demo 不是 controlled reliability study。</p></div><div class="audit-cell"><b>9 · Remaining bottleneck</b><p>环境覆盖仍依赖机器人 post-training。下一项 Pre-Training 工作尝试把更广泛的能力前移到 base model，降低每个任务/环境重新采集数据的成本。</p></div></div>
+    </div>
+    <div class="callout info" style="margin-top:18px"><b>Editorial verification · 2026-08-19.</b> Research Index 显示 2025-10-15，而当前文章页显示 December 2025。本报告保留 source-version metadata discrepancy，不推测原因；研究截止日仍为 2026-08-18。</div>
+  </section>
+
+  <section class="section study-dossier study-3" id="study-pretraining" data-title="Study 03 · DYNA-1 Pre-Training">
+    <div class="section-head"><span class="num">S03</span><h2>DYNA-1 Pre-Training</h2></div>
+    <div class="study-masthead">
+      <div><span class="study-kicker">Study 03 · Capability in the base model</span><strong class="study-question">预训练能否先提供 selected manipulation priors，再用很少的新任务 robot demonstrations 完成适配？</strong></div>
+      <div class="study-metadata"><span><b>Official source</b><a href="https://www.dyna.co/research/pre-training" target="_blank" rel="noopener noreferrer">Zero-Shot Dexterity Is Here ↗</a></span><span><b>Publication</b>2025-11-20</span><span><b>Evidence type</b>Short company update · limited protocol</span></div>
+    </div>
+    <div class="study-figure">
+      <div class="study-figure-title"><b>Separate zero-shot evidence from adaptation evidence</b><span>Same post, different claim semantics</span></div>
+      <div class="evidence-route"><div><b>Base model</b><span>Selected laundry and package-sorting behaviors are described as zero-shot; task list, attempts and contamination checks are not disclosed.</span></div><div><b>New-task demos</b><span>“As little as one hour” of demonstrations is an adaptation claim; accepted vs collected duration and task mapping are unknown.</span></div><div><b>Post-trained result</b><span>Cup stacking、celery chopping、breakfast making、tablemat preparation 被报告接近 100%；denominator 与 success rubric 未披露。</span></div></div>
+    </div>
+    <div class="audit-bands">
+      <div class="audit-band"><div class="audit-cell"><b>1 · Research question</b><p>与其为每个新 skill 从头收集大量机器人数据，base model 是否已经包含可直接调用或少量微调即可释放的 dexterity prior？</p></div><div class="audit-cell"><b>2 · Why it followed</b><p>DYNA-1i 仍用 tens of hours 的 office robot data 获得环境鲁棒性。Pre-Training update 把问题转为：能力能否在 task-specific deployment 之前就存在。</p></div><div class="audit-cell"><b>3 · Data</b><p>pre-training corpus、source mix、规模与 contamination controls 均未披露。adaptation 仅给出“as little as one hour” demonstrations，没有 collected/accepted distinction。</p></div></div>
+      <div class="audit-band"><div class="audit-cell"><b>4 · Model / mechanism</b><p>文章仍称 DYNA-1 base model，没有公开新 architecture、objective、parameter count 或 action representation。无法判断与 DYNA-1i 的具体 recipe 差异。</p></div><div class="audit-cell"><b>5 · Evaluation protocol</b><p>selected videos 与短文字结果构成主要证据。zero-shot 和 fine-tuned tasks 需要分别阅读；文章未给 attempt denominator、reset policy、task-specific data table 或 evaluator protocol。</p></div><div class="audit-cell"><b>6 · Reported results</b><p>公司报告 selected zero-shot behaviors；并在 cup stacking、celery chopping、breakfast making、tablemat preparation 等任务上以少至一小时 demonstrations 达到 roughly 100% internal success。[DYN-C017–018]</p></div></div>
+      <div class="audit-band conclusion"><div class="audit-cell"><b>7 · Directly supported</b><p>支持“Dyna 曾公开展示 selected base-model behaviors，并报告低数据 fine-tuning 结果”。它提供方向性证据：pre-training 可能提升 robot adaptation sample efficiency。</p></div><div class="audit-cell"><b>8 · Not established</b><p>不支持普遍 zero-shot dexterity、跨任意 task 的一小时适配或与外部模型可比的成功率。也不知道哪项任务用了最少一小时、共做多少次尝试。</p></div><div class="audit-cell"><b>9 · Remaining bottleneck</b><p>缺少可复查的 scaling axis、held-out protocol 与跨本体测试。Dyna-2 随后用 nested human-video hours 和三级 evidence chain 把这些变量显式化。</p></div></div>
+    </div>
+    <div class="callout danger" style="margin-top:18px"><b>Protocol disclosure remains the evidence ceiling.</b> “zero-shot” 只有写清相对于哪类数据为零才可比较；“one hour” 只描述某个公开 claim 的 demonstration duration，不等于总工程时间，也不能补成未公开的 task-by-task table。</div>
+  </section>
+
+  <section class="section study-dossier study-4" id="study-dyna2" data-title="Study 04 · Dyna-2">
+    <div class="section-head"><span class="num">S04</span><h2>Dyna-2 Scaling Study</h2></div>
+    <div class="study-masthead"><div><span class="study-kicker">Study 04 · Human-video scale as the controlled axis</span><strong class="study-question">当主要改变的是 human-video hours，而非 model size 或 compute 时，跨人类与机器人评测的 representation quality 是否单调改善？</strong></div><div class="study-metadata"><span><b>Official source</b><a href="https://www.dyna.co/dyna-2" target="_blank" rel="noopener noreferrer">1-Million-Hour Scaling Law ↗</a></span><span><b>Publication</b>2026-08-15</span><span><b>Evidence type</b>Official research · controlled internal study</span></div></div>
+    <div class="audit-bands">
+      <div class="audit-band"><div class="audit-cell"><b>1–3 · Question, predecessor, data</b><p>承接 Pre-Training 的协议缺口，Dyna-2 明确 1K→10K→100K→1M nested ladder、固定 100-hour held-out human set，以及 pseudo-action 与 video-only sources；corpus license、组成与 deduplication 仍未知。</p></div><div class="audit-cell"><b>4 · Model / mechanism</b><p>WAM 联合 future-video 与 future-action flow objectives，使用 video/action DiT streams、text 与 proprioception。披露的 scaling policy 推理时无需生成 future video。</p></div><div class="audit-cell"><b>5 · Evaluation protocol</b><p>Stage A：human prediction；Stage B：39-task offline robot prediction；Stage C：task-specific robot post-training 后的 14-task physical evaluation。三层 metric 和物理语义不同。</p></div></div>
+      <div class="audit-band conclusion"><div class="audit-cell"><b>6 · Reported results</b><p>公司报告各层随 human-video rung 改善；真机汇总为 20→28→45→53 mean normalized score，并给出 objective ablations 与内部 WAM-vs-VLA comparison。</p></div><div class="audit-cell"><b>7–8 · Supported / not established</b><p>支持内部 controlled scaling evidence；不支持把 53 改写为 universal success rate，不支持把 39-task offline prediction 改写为真机零样本控制，也不支持任意 embodiment transfer、外部 VLA 普遍劣于 WAM 或 independently reproduced scaling law。</p></div><div class="audit-cell"><b>9 · Remaining bottleneck</b><p>model/compute scaling、statistical replication、public corpus/code/weights、leakage audit、external strong baselines，以及 robot post-training 的总 adaptation cost 仍未解决。</p></div></div>
+    </div>
+    <p class="callout info" style="margin-top:18px"><b>Deep-dive map.</b> 下方 System Architecture、Data Engine、Scaling Ladder、Three Evidence Stages、20→28→45→53、WAM、WAM vs VLA、Bottle-Cap 与 Cross-Embodiment 章节共同构成本研究的详细审计，不应拆成彼此独立的营销结论。</p>
+  </section>
 
   <section class="section" id="system" data-title="System architecture"><div class="section-head"><span class="num">04</span><h2>System Architecture</h2></div><p class="lede">官方首页把当前系统分成 reasoning、task dexterity、whole-body control 与 embodiment/sensing 四层。这种定位有助于确定公开 attribution 的上限，但没有给出进程边界、接口、planning loop、safety controller 或 recovery ownership。</p><div class="pipeline"><div class="pipe-row"><span class="node">DYNA-VLM</span><span class="arrow">↓</span><span>high-level agentic reasoning</span></div><div class="pipe-row"><span class="node">DYNA-2</span><span class="arrow">↓</span><span>mid-level task dexterity</span></div><div class="pipe-row"><span class="node">DYNA-System0</span><span class="arrow">↓</span><span>low-level whole-body control</span></div><div class="pipe-row"><span class="node">DYNA-SAUR</span><span class="arrow">↓</span><span>embodiment / sensing · vision · tactile · proprioception</span></div></div><div class="g2 grid analysis-grid"><div class="card"><h3>Public attribution supports</h3><p>可以把 DYNA-2 描述为当前公开 stack 中的 mid-level dexterity component，并把 System0 与低层 whole-body control 联系起来。</p></div><div class="card"><h3>Integrated behavior remains shared</h3><p>一个 demo 中观察到的导航、抓取、失败检测、动作恢复与人机安全可能跨越多个模块；没有公开依赖图时，不能从最终行为反推单模型责任。</p></div></div><div class="callout danger" style="margin-top:20px"><b>Attribution Boundary</b><br>公开网页给出的是高层模块定位，不是完整软件依赖图。integrated demo 中的 planning、navigation、control、recovery 与 safety 不能自动全部归因给 Dyna-2。[DYN-S001; DYN-C064–067]</div></section>
 
@@ -1022,14 +1163,21 @@
     <div class="chapter-head">
       <div class="kicker">Chapter 2</div>
       <h2>Evidence platform / 证据平台与基础设施</h2>
-      <p class="lede">把瓶盖案例、跨本体、基础设施与其数值、以及“为什么基础设施重要”合并在一起看，更容易看见 Dyna 是如何把工程系统变成研究变量的。</p>
+      <p class="lede">先完成 Dyna-2 的 adaptation 与 cross-embodiment evidence audit，再把第五项官方研究——million-hour infrastructure——作为独立 Study 阅读，最后进入流水线、内部指标与瓶颈迁移。</p>
       <p class="chapter-argument">瓶盖案例暴露任务级 adaptation cost 的口径问题，百万小时管线则暴露实验可重复性的系统成本。两者共同说明：规模研究不仅依赖模型与数据量，还依赖 episode 组织、manifest、局部缓存、通信拓扑与失败恢复；但这些内部工程测量仍然是 workload-specific evidence。</p>
-      <nav class="chapter-map" aria-label="证据平台与基础设施章节索引"><a href="#bottle-cap"><b>11</b>瓶盖审计</a><a href="#cross-embodiment"><b>12</b>跨本体</a><a href="#infrastructure"><b>13</b>数据基础设施</a><a href="#infra-numbers"><b>14</b>内部指标</a><a href="#why-infra"><b>15</b>瓶颈迁移</a></nav>
+      <nav class="chapter-map" aria-label="证据平台与基础设施章节索引"><a href="#bottle-cap"><b>11</b>瓶盖审计</a><a href="#cross-embodiment"><b>12</b>跨本体</a><a href="#study-infrastructure"><b>S05</b>Infrastructure Study</a><a href="#infrastructure"><b>13</b>数据流水线</a><a href="#infra-numbers"><b>14–15</b>指标与瓶颈</a></nav>
     </div>
 
   <section class="section" id="bottle-cap" data-title="Bottle-cap audit"><div class="section-head"><span class="num">11</span><h2>Bottle-Cap Case Study</h2></div><div class="g2 grid"><div class="card"><span class="badge" data-code="OR">OR · DYN-S006</span><h3>roughly 10 minutes</h3><p>technical report：robot demonstrations；10 physical trials per checkpoint。</p></div><div class="card"><span class="badge" data-code="CM">CM · DYN-S033</span><h3>13 minutes of data</h3><p>corrected press release wording。</p></div></div><div class="chips"><span class="chip">1K · 10%</span><span class="chip">10K · 10%</span><span class="chip">100K · 40%</span><span class="chip">1M · 50%</span></div><div class="callout danger"><b>10 minutes is not total engineering effort.</b> 未披露 collection overhead、rejected trajectories、operator time、setup、hyperparameter search、robot resets、seed variation、object variation。10/13 保留为 source-specific discrepancy，不合并成假精度。[DYN-C032; DYN-C068]</div></section>
 
   <section class="section" id="cross-embodiment" data-title="Cross-embodiment audit"><div class="section-head"><span class="num">12</span><h2>Cross-Embodiment Audit</h2></div><div class="g2 grid"><div class="card known"><h3>Directly supported</h3><ul><li>human-video scaling improves offline action prediction on held-out robot trajectories</li><li>matched robot post-training yields monotonic aggregate physical score across three disclosed embodiments</li></ul></div><div class="card unknown"><h3>Not established</h3><ul><li>arbitrary embodiment transfer</li><li>zero-shot physical transfer</li><li>no kinematic adaptation</li><li>no embodiment-specific post-training</li><li>universal morphology transfer</li></ul></div></div></section>
+
+  <section class="section study-dossier study-5" id="study-infrastructure" data-title="Study 05 · Infrastructure">
+    <div class="section-head"><span class="num">S05</span><h2>Dyna-2 Infrastructure Study</h2></div>
+    <div class="study-masthead"><div><span class="study-kicker">Study 05 · Make million-hour training repeatable</span><strong class="study-question">当 corpus 进入千万级 episode 和 petabyte 规模，怎样让一次训练的输入可重建、GPU 可持续取数，并在多周故障后恢复？</strong></div><div class="study-metadata"><span><b>Official source</b><a href="https://www.dyna.co/research/dyna-2-infrastructure" target="_blank" rel="noopener noreferrer">Training Dyna-2 at million-hour scale ↗</a></span><span><b>Publication</b>2026-08-17</span><span><b>Evidence type</b>Official research · internal engineering measurements</span></div></div>
+    <div class="audit-bands"><div class="audit-band"><div class="audit-cell"><b>1–3 · Question, predecessor, data</b><p>Dyna-2 把研究轴推进到 1M human-video hours 后，bottleneck 从模型转向 episode format、ingestion、metadata、delivery 与 long-run failure。文章描述 43M episodes 的初始 manifest 阶段和后续 50M+ rows。</p></div><div class="audit-cell"><b>4 · Model / mechanism</b><p>MCAP/H.264 + topic-group chunking、Airflow DAG、transactional DB/warehouse/CDC、memory-mapped manifest、NVMe/Alluxio cache、topology-aware optimizer sharding 与 restart/requeue 组成联合 redesign。</p></div><div class="audit-cell"><b>5 · Evaluation protocol</b><p>证据是 Dyna workload 上的 before/after engineering measurements。raw logs、hardware matrix、cost、confidence interval 和 external reproduction 未公开，因而不能当作工具级 universal benchmark。</p></div></div><div class="audit-band conclusion"><div class="audit-cell"><b>6 · Reported results</b><p>~68% storage reduction、~2.9× reads、14k→440k episode-hours/week、~48h→&lt;1min first batch、~2 GB/s/node、98% warm GPU utilization、relevant scale 下 ~3× optimizer step。</p></div><div class="audit-cell"><b>7–8 · Supported / not established</b><p>支持 end-to-end system redesign 对公司工作负载的重要性；不支持某单一工具独立产生全部增益，也不支持这些数字迁移到任意 robot dataset、cluster 或 policy。</p></div><div class="audit-cell"><b>9 · Remaining bottleneck</b><p>cold-cache behavior、总 GPU-hours、energy/cost、failure-rate distribution、lost work、checkpoint interval、node count，以及 manifest/query 复现材料仍未公开。</p></div></div></div>
+    <div class="callout info" style="margin-top:18px"><b>Deep-dive map.</b> 紧接着的 Infrastructure Deep Dive、Numbers Dashboard 与 bottleneck migration 解释 storage、ingestion、manifest、delivery、distributed training 和 resilience；这些是研究可重复性的组成，不是 customer deployment evidence。</div>
+  </section>
 
   <section class="section" id="infrastructure" data-title="Infrastructure deep dive"><div class="section-head"><span class="num">13</span><h2>Infrastructure Deep Dive</h2></div><p class="lede">robot episode 同步多相机、proprioception 与 action，采样常需稀疏视频帧加密集 state/action window；这与独立图片或连续 token stream 的访问模式不同。</p><figure class="research-figure"><svg viewBox="0 0 960 420" role="img" aria-labelledby="infraFigTitle infraFigDesc"><title id="infraFigTitle">百万小时机器人训练基础设施流水线</title><desc id="infraFigDesc">数据从采集和 episode storage，经过 ingestion、warehouse、manifest 与 cluster-local delivery，进入 distributed training 和 failure recovery。</desc><defs><marker id="infraArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9z" class="svg-arrow-fill"/></marker></defs><text x="38" y="34" class="svg-kicker">BOTTLENECKS MOVE AS THE CORPUS SCALES</text><g class="svg-card"><rect x="38" y="62" width="196" height="104" rx="18"/><text x="62" y="93" class="svg-label">01 · COLLECTION</text><text x="62" y="122" class="svg-title">Raw episodes</text><text x="62" y="146" class="svg-muted">cameras · state · action</text></g><g class="svg-card svg-blue"><rect x="267" y="62" width="196" height="104" rx="18"/><text x="291" y="93" class="svg-label">02 · STORAGE</text><text x="291" y="122" class="svg-title">MCAP / H.264</text><text x="291" y="146" class="svg-muted">GOP · topic-group chunks</text></g><g class="svg-card"><rect x="496" y="62" width="196" height="104" rx="18"/><text x="520" y="93" class="svg-label">03 · INGESTION</text><text x="520" y="122" class="svg-title">Airflow / K8s</text><text x="520" y="146" class="svg-muted">QA · retries · bin packing</text></g><g class="svg-card"><rect x="725" y="62" width="196" height="104" rx="18"/><text x="749" y="93" class="svg-label">04 · CURATION</text><text x="749" y="122" class="svg-title">Warehouse</text><text x="749" y="146" class="svg-muted">CDC · analytical selection</text></g><g class="svg-card"><rect x="725" y="236" width="196" height="104" rx="18"/><text x="749" y="267" class="svg-label">05 · MANIFEST</text><text x="749" y="296" class="svg-title">Frozen run input</text><text x="749" y="320" class="svg-muted">columnar · memory mapped</text></g><g class="svg-card svg-blue"><rect x="496" y="236" width="196" height="104" rx="18"/><text x="520" y="267" class="svg-label">06 · DELIVERY</text><text x="520" y="296" class="svg-title">NVMe / Alluxio</text><text x="520" y="320" class="svg-muted">cluster-local working set</text></g><g class="svg-card svg-orange"><rect x="267" y="236" width="196" height="104" rx="18"/><text x="291" y="267" class="svg-label">07 · TRAINING</text><text x="291" y="296" class="svg-title">Topology aware</text><text x="291" y="320" class="svg-muted">optimizer sharding</text></g><g class="svg-card"><rect x="38" y="236" width="196" height="104" rx="18"/><text x="62" y="267" class="svg-label">08 · RECOVERY</text><text x="62" y="296" class="svg-title">Restart / requeue</text><text x="62" y="320" class="svg-muted">checkpoint · diagnostics</text></g><path d="M234 114H254" class="svg-arrow" marker-end="url(#infraArrow)"/><path d="M463 114H483" class="svg-arrow" marker-end="url(#infraArrow)"/><path d="M692 114H712" class="svg-arrow" marker-end="url(#infraArrow)"/><path d="M823 166V223" class="svg-arrow" marker-end="url(#infraArrow)"/><path d="M725 288H705" class="svg-arrow" marker-end="url(#infraArrow)"/><path d="M496 288H476" class="svg-arrow" marker-end="url(#infraArrow)"/><path d="M267 288H247" class="svg-arrow" marker-end="url(#infraArrow)"/><text x="480" y="388" text-anchor="middle" class="svg-warning">Adding GPUs cannot repair storage layout, scheduler bursts, manifest crawl, remote I/O or failed-node recovery</text></svg><figcaption><b>Figure 7 · End-to-end infrastructure, not a single-tool benchmark.</b> 报告中的提升来自格式、codec、chunking、metadata、cache 与 trainer 的联合 redesign，不能单独归功于 MCAP、H.264、Airflow 或 Alluxio。[DYN-S007]</figcaption></figure><div class="g2 grid analysis-grid"><div class="card"><h3>Why a robot sample is structurally different</h3><p>一条训练样本可能只解码少量 camera frames，却需要更长、更密集的 state/action window；多个 modality 还带有不同 clock。随机 temporal access、同步与 calibration 因而成为数据格式的一部分。</p></div><div class="card"><h3>Why WAM changes storage choices</h3><p>稀疏 VLA sampling 会频繁支付 keyframe seek cost，较长的连续 WAM clip 则更能摊薄 GOP decode。policy context length 因此也会影响 codec 与 chunk layout。</p></div><div class="card"><h3>Manifest as reproducibility object</h3><p>manifest 不只是 path list，而是一次 run 精确使用的 episode range、位置与筛选结果。把它冻结并 memory-map，才能同时控制启动时间、sharding 与可复查性。</p></div><div class="card unknown"><h3>What internal numbers still omit</h3><p>cold-cache behavior、完整 GPU-hours、node count、energy、failure distribution、checkpoint loss、annotation cost，以及每个 usable human-video hour 的总成本仍未公开。</p></div></div><div class="accordion" id="infraList"></div></section>
 
@@ -1094,6 +1242,7 @@
 <script>
 (()=>{'use strict';
 const DATA=JSON.parse(document.getElementById('registryData').textContent), C=DATA.claims,S=DATA.sources,D=DATA.demos;
+const revisedOpenWorldSource=S.find(s=>s.source_id==='DYN-S004');if(revisedOpenWorldSource){revisedOpenWorldSource.accessed_date='2026-08-19';revisedOpenWorldSource.reliability_notes='Research Index shows 2025-10-15 while the current article page displays December 2025; metadata discrepancy rechecked 2026-08-19 and retained without causal interpretation. The two 30-minute benchmark rows remain internal company measurements with no disclosed repeats.';}const revisedPhysicalDemo=D.find(d=>d.demo_id==='DYN-D006');if(revisedPhysicalDemo)revisedPhysicalDemo.success_rate='Mean normalized score 20/28/45/53 by pre-training rung (not percentages)';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], val=v=>(v&&v.trim()&&v.trim()!=='Not applicable'?v:'Unknown / Not disclosed');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sourceById=new Map(S.map(s=>[s.source_id,s]));
@@ -1104,10 +1253,11 @@ const fill=(id,arr,k)=>{const el=$(id);unique(arr,k).forEach(v=>el.insertAdjacen
 const legend=[['OR','Official Research'],['CT','Official Company Technical Post'],['CM','Official Company / Marketing'],['RP','Research Paper'],['EB','External Dataset / Benchmark'],['TP','Third Party Reporting'],['RI','Research Inference']];
 $('#evidenceLegend').innerHTML=legend.map(x=>`<span class="badge" data-code="${x[0]}" title="${x[1]}">${x[0]} · ${x[1]}</span>`).join('');
 const sectionTitles={'cover':'封面 / Cover','executive':'关键证据卡 / Executive Evidence Card','how-read':'如何阅读本报告 / How to Read This Report','thesis':'公司主张 / Company Thesis','chapter-core':'核心技术主线 / Core Technical Stack','timeline':'研究演化时间线 / Research Evolution Timeline','system':'系统架构与归因边界 / System Architecture','data-engine':'数据引擎 / Data Engine','scaling-ladder':'百万小时扩展阶梯 / Million-Hour Scaling Ladder','stages':'三阶段证据链 / Three Evidence Stages','score':'20 → 28 → 45 → 53 / Aggregate Physical Score','wam':'World-Action Model 深入解析 / World-Action Model Deep Dive','wam-vla':'WAM 与 VLA 内部比较 / WAM vs VLA','chapter-evidence':'证据平台与基础设施 / Evidence Platform and Infrastructure','bottle-cap':'瓶盖案例研究 / Bottle-Cap Case Study','cross-embodiment':'跨本体审计 / Cross-Embodiment Audit','infrastructure':'基础设施深挖 / Infrastructure Deep Dive','infra-numbers':'基础设施指标看板 / Infrastructure Numbers Dashboard','why-infra':'百万小时基础设施为何重要 / Why Million-Hour Infrastructure Matters','chapter-deployment':'部署与商业证据 / Deployment and Commercial Audit','deployment':'部署台账 / Deployment Ledger','monster':'Monster Laundry 客户证据 / Named-Customer Evidence','autonomy':'24/7 自主运行审计 / 24/7 Autonomy Audit','marketing':'营销语言 vs 技术机制 / Marketing Language vs Technical Mechanism','task-discrepancy':'14 任务与 15 任务差异 / 14-task vs 15-task Source Discrepancy','safety':'安全与可靠性 / Safety and Reliability','business':'商业与融资 / Business and Funding','comparison':'Sunday 与 Dyna / Conceptual Comparison','chapter-appendix':'附录与检索工具 / Appendix and Reference Tools','high-risk':'高重要度 + 高验证风险 / High Importance + High Verification Risk','claims':'Claim Explorer / Structured Claim Registry','questions':'研究问题 / Research Questions','reviewer':'审稿人视角 / If Dyna-2 Were a Conference Submission','glossary':'术语表 / Glossary','sources':'结构化来源 / Structured Sources','limits':'发布边界 / Publication Boundary'};
+Object.assign(sectionTitles,{'research-index':'五项官方研究覆盖 / Official Research Index Coverage','study-dyna1':'研究 01：DYNA-1 / Study 01: Reliability','study-dyna1i':'研究 02：DYNA-1i / Study 02: Open-World Dexterity','study-pretraining':'研究 03：DYNA-1 预训练 / Study 03: Pre-Training','study-dyna2':'研究 04：Dyna-2 / Study 04: Scaling Law','study-infrastructure':'研究 05：基础设施 / Study 05: Million-Hour Infrastructure'});
 const tocGroups=[
-  ['概览 / Overview',['cover','executive','how-read','thesis'],'overview'],
-  ['核心技术 / Technical Core',['chapter-core','timeline','system','data-engine','scaling-ladder','stages','score','wam','wam-vla'],'core'],
-  ['证据与基础设施 / Evidence',['chapter-evidence','bottle-cap','cross-embodiment','infrastructure','infra-numbers','why-infra'],'evidence'],
+  ['概览 / Overview',['cover','executive','how-read','thesis','research-index'],'overview'],
+  ['核心技术 / Technical Core',['chapter-core','timeline','study-dyna1','study-dyna1i','study-pretraining','study-dyna2','system','data-engine','scaling-ladder','stages','score','wam','wam-vla'],'core'],
+  ['证据与基础设施 / Evidence',['chapter-evidence','bottle-cap','cross-embodiment','study-infrastructure','infrastructure','infra-numbers','why-infra'],'evidence'],
   ['部署与商业 / Deployment',['chapter-deployment','deployment','monster','autonomy','marketing','task-discrepancy','safety','business','comparison'],'deployment'],
   ['附录与工具 / Appendix',['chapter-appendix','high-risk','claims','questions','reviewer','glossary','sources','limits'],'appendix']
 ];
@@ -1170,6 +1320,7 @@ const sectionSources={
   monster:['DYN-S013'],autonomy:['DYN-S001','DYN-S003'],marketing:['DYN-S006','DYN-S033'], 'task-discrepancy':['DYN-S006','DYN-S033'],
   safety:['DYN-S001','DYN-S003','DYN-S004'],business:['DYN-S009','DYN-S010','DYN-S014'],reviewer:['DYN-S006']
 };
+Object.assign(sectionSources,{'research-index':['DYN-S002'],'study-dyna1':['DYN-S003'],'study-dyna1i':['DYN-S004'],'study-pretraining':['DYN-S005'],'study-dyna2':['DYN-S006'],'study-infrastructure':['DYN-S007']});
 function decorateReferences(){Object.entries(sectionSources).forEach(([id,ids])=>{const head=$(`#${id} > .section-head`);if(head&&!head.nextElementSibling?.classList.contains('section-source-links'))head.insertAdjacentHTML('afterend',`<div class="source-links section-source-links" aria-label="本节主要来源">${ids.map(x=>sourceAnchor(x,`${x} · Open`)).join('')}</div>`)});const candidates=$$('.card,.callout,.boundary,.chapter-argument,.lede,.research-figure figcaption');candidates.forEach(el=>{if(el.querySelector(':scope > .source-links'))return;const ids=[...new Set(el.textContent.match(/DYN-[SC]\d{3}/g)||[])];if(!ids.length)return;const links=ids.map(id=>id.startsWith('DYN-S')?sourceAnchor(id,`${id} · Source`):`<a class="claim-ref" href="#claims" data-claim="${esc(id)}">${esc(id)} · Claim</a>`).join('');el.insertAdjacentHTML('beforeend',`<div class="source-links">${links}</div>`)});}
 decorateReferences();
 document.addEventListener('click',e=>{const a=e.target.closest('.claim-ref');if(!a)return;e.preventDefault();$('#claimSearch').value=a.dataset.claim;renderClaims();$('#claims').scrollIntoView({behavior:'smooth',block:'start'});});

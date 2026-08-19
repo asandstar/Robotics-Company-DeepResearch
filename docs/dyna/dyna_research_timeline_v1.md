@@ -9,6 +9,20 @@ Dyna's public route moves through three successive bottlenecks. DYNA-1 focuses o
 
 This is not a clean replacement sequence. The 2026 deployment retrospective says pre-training alone did not solve production deployment: early customer installations still required weeks to months of on-site engineering, and knowledge did not yet transfer cleanly from one deployment to the next [DYN-S012]. **Evidence label — Research Inference:** this audit summarizes the public route as a two-loop strategy—broad human-video pre-training plus narrow, deployment-fed robot post-training. Dyna does not publicly name it a “two-loop strategy.”
 
+## Official Research Index coverage
+
+Dyna's official Research Index contained five works at the research cutoff. Dyna.html v1.1 treats each as a first-class study and applies the same nine audit questions: research question, relationship to the prior work, data, model/mechanism, evaluation protocol, reported result, directly supported interpretation, not-established interpretation, and remaining bottleneck.
+
+| Order | Official work | Canonical role in the research route | Primary source |
+| --- | --- | --- | --- |
+| 01 | Dynamism v1 / DYNA-1 | Long-horizon reliability, reward-model feedback and recovery | DYN-S003 |
+| 02 | Open-World Dexterity / DYNA-1i | Selected environment generalization and live demonstrations | DYN-S004 |
+| 03 | DYNA-1 Pre-Training | Selected zero-shot behavior and low-data adaptation | DYN-S005 |
+| 04 | Dyna-2 scaling study | Human-video scaling, WAM and matched robot post-training | DYN-S006 |
+| 05 | Dyna-2 infrastructure | Repeatable storage, ingestion, delivery, distributed training and recovery | DYN-S007 |
+
+Equal audit depth means equal question coverage, not equal word count. Dyna-2 remains the most detailed dossier because its technical report discloses substantially more protocol and ablation information. Unknown fields are retained rather than inferred.
+
 ## 1. Dynamism v1 / DYNA-1 — reliability before breadth
 
 **Public milestone:** 2025-06-24 [DYN-S003]
@@ -22,9 +36,11 @@ This is not a clean replacement sequence. The 2026 deployment retrospective says
 7. **Deployment:** Dyna said it had paying napkin-folding customers. It also acknowledged that zero-shot customer-site quality and throughput dropped and improved only after on-site training.
 8. **Scaling hypothesis:** repeatable competence comes from a reward model that turns deployment failures and progress states into training signal. Scale meant more experience inside a task and better recovery, not yet broader pre-training.
 
+**Audit conclusion:** directly supported is a company-reported 24-hour internal run and a disclosed reward/progress feedback mechanism. Not established are fleet-level autonomy, independent verification, a controlled six-week learning curve or cross-task recovery. The remaining bottleneck is robustness under environment change.
+
 ## 2. Open-World Dexterity / DYNA-1i — separate robustness from environment generalization
 
-**Index milestone:** 2025-10-15; the page body displays “December 2025,” so the registry preserves the discrepancy [DYN-S002, DYN-S004].
+**Index milestone:** 2025-10-15; the current page displays “December 2025,” so the registry preserves the discrepancy [DYN-S002, DYN-S004]. **Editorial verification:** rechecked 2026-08-19; no causal interpretation is inferred and the research cutoff remains 2026-08-18.
 
 1. **What it solved:** Dyna explicitly separated on-task robustness from cross-environment generalization. Beyond selected videos, it reported a 30-minute seen-office result (22 shirts, about 40/hour, average quality about grade 3+) and one 30-minute combined unseen Lobby / Parking / CoRL result (20 shirts, about 40/hour, average quality about grade 3+) after training on a handful of office stations [DYN-S004].
 2. **What bottleneck it exposed:** the original DYNA-1 could remain robust within a task yet degrade outside the training environment. “99%+” in-distribution performance therefore did not imply open-world deployment.
@@ -34,6 +50,8 @@ This is not a clean replacement sequence. The 2026 deployment retrospective says
 6. **Evaluation:** the company publishes two quantitative condition rows, each defined as a 30-minute continuous window counting shirts folded consecutively without failure. The page does not disclose independent repeats, confidence intervals, a full failure log, or how the combined unseen window is divided among Lobby, Parking and CoRL. CoRL also appears separately as a three-day public demo, not as independent verification.
 7. **Deployment:** live conference demonstrations provide external corroboration that a system was publicly shown, but are not a controlled reliability study; staff presence, active runtime, resets and failures are unknown.
 8. **Scaling hypothesis:** modest station diversity plus a robust task policy may be enough to bridge selected environment shifts. The evidence did not yet establish unrestricted open-world generalization.
+
+**Audit conclusion:** directly supported are one seen-office row and one combined unseen-condition row, both company run, plus the fact of selected public demonstrations. Not established are three separate 30-minute Lobby, Parking and CoRL results, independent repeats, unrestricted open-world generalization or production uptime. The remaining bottleneck is reducing environment-specific robot post-training.
 
 ## 3. DYNA-1 Pre-Training — capability in the base, then one-hour adaptation
 
@@ -48,6 +66,8 @@ This is not a clean replacement sequence. The 2026 deployment retrospective says
 7. **Deployment:** no production deployment protocol was disclosed for these particular tasks.
 8. **Scaling hypothesis:** broad pre-training can create zero-shot dexterity and improve the sample efficiency of task-specific robot fine-tuning.
 
+**Audit conclusion:** directly supported is that the company published selected base-model and low-data adaptation examples. Not established are general zero-shot dexterity, a standardized roughly-100% success rate or one-hour adaptation across tasks. The remaining bottleneck is a disclosed corpus, explicit zero-shot boundary, attempt denominator and controlled scaling protocol.
+
 ## 4. DYNA-2 — human-video scale as the pre-training axis
 
 **Public milestone:** 2026-08-15 [DYN-S006]
@@ -61,6 +81,8 @@ This is not a clean replacement sequence. The 2026 deployment retrospective says
 7. **Deployment:** the company reports 87% versus 46% customer-site pass rates for Dyna-2 versus Dyna-1 under matched task post-training and no site data. Sites, task mix, attempts and criteria are not public.
 8. **Scaling hypothesis:** future-video prediction creates a representation that transfers across embodiments, and human video— including video without action labels—is a scalable pre-training resource. Robot data remains necessary for the reported physical task policies.
 
+**Audit conclusion:** directly supported is a controlled internal human-video scaling study across human, offline robot and post-trained physical stages. Not established are physical zero-shot execution, 53% universal success, arbitrary embodiment transfer or independent replication. The remaining bottlenecks are statistical replication, public artifacts, leakage auditing, external baselines and full adaptation-cost accounting.
+
 ## 5. Dyna-2 Infrastructure — make the million-hour rung repeatable
 
 **Public milestone:** 2026-08-17 [DYN-S007]
@@ -73,6 +95,8 @@ This is not a clean replacement sequence. The 2026 deployment retrospective says
 6. **Evaluation:** internal before/after engineering measurements: ~68% smaller storage, ~2.9× faster reads, 14k → 440k episode-hours/week ingestion, ~48 hours → under one minute to first batch, ~2 GB/s per-node cache reads, 98% warm-run GPU utilization and ~3× faster optimizer step at the switching scale.
 7. **Deployment:** this is research-training infrastructure, not customer robot deployment. It improves experiment throughput and repeatability but does not establish robot reliability.
 8. **Scaling hypothesis:** usable scaling is vertical and systems-bound. Dataset size is valuable only if experiments can be curated, started, fed and recovered repeatedly.
+
+**Audit conclusion:** directly supported is a detailed first-party systems account with workload-specific before/after measurements. Not established is that any single named tool causes the combined improvement or that the measurements generalize to arbitrary clusters and datasets. The remaining bottlenecks are raw logs, cold-cache behavior, cost/energy, failure distributions and externally reproducible manifests.
 
 ## How Dyna's scaling hypothesis changed
 

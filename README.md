@@ -30,11 +30,11 @@
 
 主题：家庭机器人、Memory Glove、human demonstration、ACT、Diffusion Policy、deformable manipulation、force control、recovery、generalization、home robot safety。
 
-### [Dyna Robotics](./Dyna.html?v=ui7-20260819)
+### [Dyna Robotics](./Dyna.html?v=v1.1-ui1-20260819)
 
 **状态：Published — 已有完整研究报告**
 
-主题：human-video scaling、World-Action Models、cross-embodiment、task-specific post-training、million-hour infrastructure、commercial deployment 与 evidence auditing。
+主题：按官方研究顺序审计 DYNA-1、DYNA-1i、DYNA-1 Pre-Training、Dyna-2 与 million-hour infrastructure，并覆盖 human-video scaling、World-Action Models、cross-embodiment、task-specific post-training、commercial deployment 与 evidence auditing。
 
 当前可审计材料：
 
@@ -85,11 +85,11 @@ docs/reports/                      带日期的审计与版本报告
 .github/workflows/deploy-pages.yml GitHub Pages 发布工作流
 ```
 
-GitHub Pages 发布研究门户、Sunday 报告与 [Dyna 交互式技术尽调报告](./Dyna.html?v=ui7-20260819)。结构化 Dyna registries 与审计底稿继续保留为页面的 source of truth。
+GitHub Pages 发布研究门户、Sunday 报告与 [Dyna 交互式技术尽调报告 v1.1](./Dyna.html?v=v1.1-ui1-20260819)。结构化 Dyna registries 与审计底稿继续保留为页面的 source of truth。
 
 ## Update policy
 
-- 研究以明确的截止日期形成版本快照；Dyna v1 截止于 **2026-08-18**。
+- 研究以明确的截止日期形成版本快照；Dyna v1.1 截止于 **2026-08-18**，修订于 **2026-08-19**。
 - 新证据优先追加到 source registry，再更新 claim、demo/deployment audit 与叙事报告。
 - 重大数字变化保留旧版本和变更原因，不静默改写历史判断。
 - 链接、日期、外键、优先级和第三方验证状态在发布前执行检查。
