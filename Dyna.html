@@ -344,6 +344,60 @@
     .evidence-card li{padding-left:2px}
     .hero .boundary{margin-bottom:0}
     .g2,.g3,.g4{gap:14px}
+    .chapter{
+      margin:0 0 24px;
+      padding:22px 22px 12px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:30px;
+      background:linear-gradient(180deg, rgba(20,26,23,.96), rgba(14,18,16,.96));
+      box-shadow:0 16px 34px rgba(0,0,0,.16);
+      overflow:hidden;
+    }
+    [data-theme="light"] .chapter{
+      border-color:rgba(0,0,0,.08);
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(247,249,243,.98));
+      box-shadow:0 16px 28px rgba(29,37,31,.08);
+    }
+    .chapter-head{
+      padding:2px 2px 18px;
+      margin:0 0 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    [data-theme="light"] .chapter-head{border-bottom-color:rgba(0,0,0,.08)}
+    .chapter-head .kicker{margin-bottom:14px}
+    .chapter-head h2{
+      margin:0;
+      font-size:clamp(1.45rem,2.6vw,2.1rem);
+      letter-spacing:.06em;
+      line-height:1.12;
+    }
+    .chapter-head .lede{margin-top:14px;margin-bottom:0;max-width:100%}
+    .chapter .section{
+      margin:14px 0 0;
+      padding:16px 0 0;
+      border:0;
+      border-top:1px solid rgba(255,255,255,.07);
+      border-radius:0;
+      background:transparent;
+      box-shadow:none;
+      backdrop-filter:none;
+      overflow:visible;
+    }
+    [data-theme="light"] .chapter .section{border-top-color:rgba(0,0,0,.08)}
+    .chapter .section::before,
+    .chapter .section::after{display:none}
+    .chapter .section-head{
+      padding-bottom:12px;
+      margin-bottom:14px;
+    }
+    .chapter .section-head .num{
+      background:rgba(255,255,255,.05);
+      border-color:rgba(255,255,255,.08);
+    }
+    .chapter .section h2{
+      font-size:clamp(1.02rem,1.4vw,1.28rem);
+      letter-spacing:.085em;
+    }
     .section .g2.grid,.section .g3.grid,.section .g4.grid,.section .detail-grid{
       align-items:stretch;
     }
@@ -385,7 +439,7 @@
     .source-id,.claim-id{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
     .backtop{background:rgba(23,29,26,.92);border-color:rgba(255,255,255,.08)}
     @media(max-width:900px){.layout{grid-template-columns:1fr}.toc{top:58px}.g3,.g4{grid-template-columns:repeat(2,1fr)}.detail-grid{grid-template-columns:1fr 1fr}.filters,.filter-secondary{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.layout{padding:0 14px 32px}.hero{padding:58px 16px 20px;border-radius:24px}.hero h1{font-size:clamp(2.3rem,11vw,4rem)}.hero-grid{grid-template-columns:1fr}.hero::after{top:16px;right:16px;letter-spacing:.16em}.toc{border-radius:22px}.section-head{grid-template-columns:auto 1fr}.section.section{padding:22px 16px 18px;border-radius:22px}.section.section::after{top:14px;right:16px;font-size:.64rem;letter-spacing:.16em}.g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}.pipe-row{grid-template-columns:1fr}.pipe-row .arrow{transform:rotate(90deg)}.ladder{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.filters,.filter-secondary{grid-template-columns:1fr}.claim summary{grid-template-columns:74px 1fr}.claim summary .risk{grid-column:2;width:max-content}.source{grid-template-columns:72px 1fr}.source>a{grid-column:2}.score-chart{gap:4px;padding:0}.bar i{width:56%}.topbar .brand{max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+    @media(max-width:620px){.layout{padding:0 14px 32px}.hero{padding:58px 16px 20px;border-radius:24px}.hero h1{font-size:clamp(2.3rem,11vw,4rem)}.hero-grid{grid-template-columns:1fr}.hero::after{top:16px;right:16px;letter-spacing:.16em}.toc{border-radius:22px}.chapter{padding:18px 14px 10px;border-radius:24px}.chapter-head{padding-bottom:14px;margin-bottom:12px}.chapter-head h2{font-size:clamp(1.2rem,5vw,1.6rem)}.chapter .section{padding-top:14px}.section-head{grid-template-columns:auto 1fr}.section.section{padding:22px 16px 18px;border-radius:22px}.section.section::after{top:14px;right:16px;font-size:.64rem;letter-spacing:.16em}.g2,.g3,.g4,.glossary-list{grid-template-columns:1fr}.pipe-row{grid-template-columns:1fr}.pipe-row .arrow{transform:rotate(90deg)}.ladder{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.filters,.filter-secondary{grid-template-columns:1fr}.claim summary{grid-template-columns:74px 1fr}.claim summary .risk{grid-column:2;width:max-content}.source{grid-template-columns:72px 1fr}.source>a{grid-column:2}.score-chart{gap:4px;padding:0}.bar i{width:56%}.topbar .brand{max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
     @media print{:root{--bg:#fff;--panel:#fff;--panel2:#f4f4f4;--text:#111;--muted:#444;--line:#bbb;--lime:#315000;--cyan:#005f5b;color-scheme:light}.topbar,.toc,.progress,.backtop,.copy-link,.filters,.filter-secondary,.filter-btn{display:none!important}.layout{display:block;max-width:none;padding:0}.hero{min-height:auto;padding:24px 0}.section{padding:28px 0;break-before:page}.card,details,.diagram,.table-wrap,.source{break-inside:avoid}details>*{display:block!important}details summary{list-style:none}.claim-list .claim{display:block!important}a[href^="http"]:after{content:" (" attr(href) ")";font-size:8pt;color:#555}h1{font-size:38pt}.score-chart{height:180px}}
   </style>
@@ -418,6 +472,12 @@
 
   <section class="section" id="thesis" data-title="Company thesis"><div class="section-head"><span class="num">02</span><h2>Company Thesis</h2></div><p class="lede">Dyna 将规模化矛盾放在 physical economy：机器人真实交互数据稀缺、部署长尾失败昂贵，而人类第一视角视频提供更宽的物理活动覆盖。公开路线从单任务长期可靠性，逐步转向 human-video representation 与部署后 robot post-training 的组合。</p><div class="g2 grid"><div class="card"><h3>Loop A · breadth</h3><p>human egocentric video → pseudo-action / future-video objectives → transferable representation。</p></div><div class="card"><h3>Loop B · grounding</h3><p>task-specific robot data → physical post-training → deployment failures → 下一轮数据与恢复。</p></div></div><div class="callout info" style="margin-top:14px"><b>Two-loop interpretation · RI</b>：这是研究归纳；Dyna 没有公开把路线命名为 “two-loop strategy”。</div></section>
 
+  <section class="chapter" id="chapter-core" data-title="03-10 · Core technical stack">
+    <div class="chapter-head">
+      <div class="kicker">Chapter 1</div>
+      <h2>Core technical stack / 核心技术主线</h2>
+      <p class="lede">把 Dyna 的研究主线合并阅读：时间线、系统架构、数据引擎、扩展阶梯、证据三阶段、WAM 与 WAM vs VLA 共同构成一条完整技术链。</p>
+    </div>
   <section class="section" id="timeline" data-title="Research timeline"><div class="section-head"><span class="num">03</span><h2>Research Evolution Timeline</h2></div><p class="lede">点击阶段展开 Problem、Data、Model、Evaluation、Deployment 与 remaining bottleneck。</p><div class="timeline" id="timelineList"></div></section>
 
   <section class="section" id="system" data-title="System architecture"><div class="section-head"><span class="num">04</span><h2>System Architecture</h2></div><div class="pipeline"><div class="pipe-row"><span class="node">DYNA-VLM</span><span class="arrow">↓</span><span>high-level agentic reasoning</span></div><div class="pipe-row"><span class="node">DYNA-2</span><span class="arrow">↓</span><span>mid-level task dexterity</span></div><div class="pipe-row"><span class="node">DYNA-System0</span><span class="arrow">↓</span><span>low-level whole-body control</span></div><div class="pipe-row"><span class="node">DYNA-SAUR</span><span class="arrow">↓</span><span>embodiment / sensing · vision · tactile · proprioception</span></div></div><div class="callout danger" style="margin-top:20px"><b>Attribution Boundary</b><br>公开网页给出的是高层模块定位，不是完整软件依赖图。integrated demo 中的 planning、navigation、control、recovery 与 safety 不能自动全部归因给 Dyna-2。[DYN-S001; DYN-C064–067]</div></section>
@@ -433,6 +493,15 @@
   <section class="section" id="wam" data-title="WAM deep dive"><div class="section-head"><span class="num">09</span><h2>World-Action Model Deep Dive</h2></div><p class="lede">Dyna-2 将 video diffusion 与 action prediction 联合建模：modality-specific DiT streams 交换信息；flow matching 学习 future-video latents 与 future action chunks；proprioception 进入 action transformer，text cross-attends to video。</p><div class="g2 grid"><div class="card"><span class="label">Training</span><h3>observed context → two objectives</h3><p>future-video objective + future-action objective → shared temporal / physical representation。</p></div><div class="card"><span class="label">Inference</span><h3>observation → action prediction</h3><p>披露的 scaling-law action head 不生成、也不 attend predicted future video。</p></div></div><div class="callout danger" style="margin-top:14px"><h3>World Model ≠ Imagined-Video Planning</h3><p>world-model training objective 学习未来预测表征；planning through imagined rollout 则需在推理时生成/评估候选未来。Dyna 的 main scaling policy 只公开支持前者。</p></div></section>
 
   <section class="section" id="wam-vla" data-title="WAM vs VLA"><div class="section-head"><span class="num">10</span><h2>WAM vs VLA</h2></div><div class="g3 grid"><div class="card"><div class="metric">1.55×</div><p>pooled success rate</p></div><div class="card"><div class="metric">1.12×</div><p>pooled quality grade</p></div><div class="card"><div class="metric">65 / 29 / 6</div><p>win / loss / tie (%)</p></div></div><p class="small">Comparison baseline: Dyna's internal production Dyna-1 VLA · 7 tasks × 3 checkpoints [DYN-C036–037]</p><div class="callout"><b>Fairness / limitations：</b>internal baseline；early WAM 与 final Dyna-2 不同；small task set；pipeline 此前为 VLA 调优；没有在公共统一 benchmark 上比较 OpenVLA、π0、π0.5 等外部强 VLA。不能写成 WAM universally beats VLA。</div></section>
+  </section>
+  </section>
+
+  <section class="chapter" id="chapter-evidence" data-title="11-15 · Evidence platform">
+    <div class="chapter-head">
+      <div class="kicker">Chapter 2</div>
+      <h2>Evidence platform / 证据平台与基础设施</h2>
+      <p class="lede">把瓶盖案例、跨本体、基础设施与其数值、以及“为什么基础设施重要”合并在一起看，更容易看见 Dyna 是如何把工程系统变成研究变量的。</p>
+    </div>
 
   <section class="section" id="bottle-cap" data-title="Bottle-cap audit"><div class="section-head"><span class="num">11</span><h2>Bottle-Cap Case Study</h2></div><div class="g2 grid"><div class="card"><span class="badge" data-code="OR">OR · DYN-S006</span><h3>roughly 10 minutes</h3><p>technical report：robot demonstrations；10 physical trials per checkpoint。</p></div><div class="card"><span class="badge" data-code="CM">CM · DYN-S033</span><h3>13 minutes of data</h3><p>corrected press release wording。</p></div></div><div class="chips"><span class="chip">1K · 10%</span><span class="chip">10K · 10%</span><span class="chip">100K · 40%</span><span class="chip">1M · 50%</span></div><div class="callout danger"><b>10 minutes is not total engineering effort.</b> 未披露 collection overhead、rejected trajectories、operator time、setup、hyperparameter search、robot resets、seed variation、object variation。10/13 保留为 source-specific discrepancy，不合并成假精度。[DYN-C032; DYN-C068]</div></section>
 
@@ -443,6 +512,15 @@
   <section class="section" id="infra-numbers" data-title="Infrastructure numbers"><div class="section-head"><span class="num">14</span><h2>Infrastructure Numbers Dashboard</h2></div><div class="g3 grid" id="infraMetrics"></div><div class="callout" style="margin-top:14px">所有数值均为 <b>Internal engineering measurement · Workload-specific · DYN-S007</b>。联合 redesign 的改善不归功于单一 MCAP、H.264、Airflow 或 Alluxio 工具。</div></section>
 
   <section class="section" id="why-infra" data-title="Why infrastructure matters"><div class="section-head"><span class="num">15</span><h2>Why Million-Hour Infrastructure Matters</h2></div><div class="thesis-flow"><span class="node">Storage</span><span class="arrow">→</span><span class="node">Scheduler</span><span class="arrow">→</span><span class="node">Metadata</span><span class="arrow">→</span><span class="node">Network</span><span class="arrow">→</span><span class="node">Optimizer Communication</span><span class="arrow">→</span><span class="node">Reliability</span></div><p class="lede">1M hours 不只是“更多存储”。当一个瓶颈被移除，主成本移动到控制面、manifest、数据局部性、collective communication 或多周训练的故障恢复。单纯增加 GPU 无法修复随机读取、scheduler write burst、48 小时 manifest crawl 或远端 object-store latency。</p></section>
+  </section>
+  </section>
+
+  <section class="chapter" id="chapter-deployment" data-title="16-23 · Deployment and commercial audit">
+    <div class="chapter-head">
+      <div class="kicker">Chapter 3</div>
+      <h2>Deployment and commercial audit / 部署与商业证据</h2>
+      <p class="lede">把部署台账、Monster Laundry、24/7、营销语言、14 vs 15 任务、Safety、融资和 Sunday 对比放在一起，读者会更容易分清：哪些是 demo，哪些是 customer corroboration，哪些仍然只是 company wording。</p>
+    </div>
 
   <section class="section" id="deployment" data-title="Deployment ledger"><div class="section-head"><span class="num">16</span><h2>Deployment Ledger</h2></div><div class="filters filter-secondary"><input id="demoSearch" type="search" placeholder="搜索 demo / task / robot" aria-label="搜索部署记录"><select id="demoType" aria-label="按评测类型筛选"><option value="">All evaluation types</option></select><select id="demoExternal" aria-label="按外部佐证筛选"><option value="">All corroboration</option></select><select id="demoIndependent" aria-label="按独立验证筛选"><option value="">All verification</option><option>Yes</option><option>Partial</option><option>No</option></select></div><p class="count" id="demoCount"></p><div id="demoList"></div></section>
 
@@ -459,6 +537,15 @@
   <section class="section" id="business" data-title="Business and funding"><div class="section-head"><span class="num">22</span><h2>Business and Funding</h2></div><div class="g3 grid"><div class="card"><h3>Founders</h3><p>Lindon Gao · York Yang · Yecheng Jason Ma；Gao/Yang 有 Caper AI 经历，Ma 的公开研究背景涵盖 foundation models、RL、reward learning、sim-to-real。[DYN-S011; S016]</p></div><div class="card"><h3>Funding</h3><p>Seed：$23.5M，2025-03-25，公司公告。[DYN-S010]<br>Series A：$120M，2025-09-15，公司公告。[DYN-S009]</p></div><div class="card"><h3>Independent reporting</h3><p>Bloomberg 报道 Series A 与估值超过 $600M，2025-09-15。[DYN-S014] Monster Laundry case 指向 RaaS；规模与经济性未知。</p></div></div></section>
 
   <section class="section" id="comparison" data-title="Sunday vs Dyna"><div class="section-head"><span class="num">23</span><h2>Sunday vs Dyna</h2></div><p class="lede">仅做 conceptual comparison；不直接横比 success rate。</p><div class="table-wrap"><table><thead><tr><th>Dimension</th><th>Sunday Robotics</th><th>Dyna Robotics</th></tr></thead><tbody><tr><td>Problem thesis</td><td>general-purpose household assistance</td><td>commercial manipulation scale and physical economy</td></tr><tr><td>Target environment</td><td>homes, high variability</td><td>commercial workflows and customer sites</td></tr><tr><td>Embodiment</td><td>mobile household robot lineage</td><td>stationary bimanual, hands, semi-humanoid, DYNA-SAUR</td></tr><tr><td>Data</td><td>human demonstration and household interaction</td><td>human egocentric video + task robot data</td></tr><tr><td>Model</td><td>Founder lineage: ALOHA, ACT, Mobile ALOHA, Diffusion Policy, UMI. Proprietary ACT-1/ACT-2 full architecture undisclosed.</td><td>DYNA-1 VLA lineage；Dyna-2 WAM</td></tr><tr><td>Post-training</td><td>proprietary details limited</td><td>task-specific robot post-training disclosed for physical suite</td></tr><tr><td>Deployment loop</td><td>household breadth and recovery</td><td>production feedback and task/site adaptation</td></tr><tr><td>Safety pressure</td><td>unstructured human-shared home</td><td>industrial/customer workflow and uptime</td></tr><tr><td>Evidence style</td><td>selected demos and research lineage</td><td>large internal experiments + systems report + deployment claims</td></tr><tr><td>Current bottleneck</td><td>open-home robustness and safety</td><td>independent replication, adaptation cost and fleet reliability</td></tr></tbody></table></div></section>
+  </section>
+  </section>
+
+  <section class="chapter" id="chapter-appendix" data-title="24-30 · Appendix and reference tools">
+    <div class="chapter-head">
+      <div class="kicker">Chapter 4</div>
+      <h2>Appendix and reference tools / 附录与检索工具</h2>
+      <p class="lede">最后把高风险 claim、Claim Explorer、研究问题、审稿人视角、术语表、结构化来源和发布边界放在一起，作为查阅与审计入口。</p>
+    </div>
 
   <section class="section" id="high-risk" data-title="High importance / risk"><div class="section-head"><span class="num">24</span><h2>High Importance + High Verification Risk</h2></div><p class="lede">从当前 registry 自动提取，不维护静态旧清单。</p><p class="count" id="highRiskCount"></p><div class="highrisk" id="highRiskList"></div></section>
 
@@ -473,6 +560,7 @@
   <section class="section" id="sources" data-title="Sources"><div class="section-head"><span class="num">29</span><h2>Structured Sources</h2></div><p class="lede">来源来自 <span class="mono">data/dyna_source_registry_v1.csv</span>；公司源证明公司披露过某内容，不自动独立验证其结果。</p><div class="filters"><input id="sourceSearch" type="search" placeholder="搜索 source_id / title / organization / topics" aria-label="搜索来源"><select id="sourceType"><option value="">All source types</option></select></div><p class="count" id="sourceCount"></p><div id="sourceList"></div></section>
 
   <section class="section" id="limits" data-title="Publication boundary"><div class="section-head"><span class="num">30</span><h2>Publication Boundary</h2></div><div class="callout"><b>Snapshot, not verdict.</b> 本页冻结于 2026-08-18。未披露项保持 Unknown；external dataset、public demo、customer testimonial 与 company-run evaluation 都不会升级成独立复现。CSV registries 仍是 source of truth。</div></section>
+  </section>
 </main></div>
 <button class="backtop" id="backTop" aria-label="返回顶部">↑</button>
 <noscript><div class="noscript">本报告正文可阅读，但 Claim Explorer 与动态筛选需要 JavaScript。</div></noscript>
@@ -486,8 +574,8 @@ const unique=(arr,k)=>[...new Set(arr.map(x=>x[k]).filter(Boolean))].sort();
 const fill=(id,arr,k)=>{const el=$(id);unique(arr,k).forEach(v=>el.insertAdjacentHTML('beforeend',`<option>${esc(v)}</option>`))};
 const legend=[['OR','Official Research'],['CT','Official Company Technical Post'],['CM','Official Company / Marketing'],['RP','Research Paper'],['EB','External Dataset / Benchmark'],['TP','Third Party Reporting'],['RI','Research Inference']];
 $('#evidenceLegend').innerHTML=legend.map(x=>`<span class="badge" data-code="${x[0]}" title="${x[1]}">${x[0]} · ${x[1]}</span>`).join('');
-const sectionTitles={'cover':'封面 / Cover','executive':'00 · 关键证据卡 / Executive Evidence Card','how-read':'01 · 如何阅读本报告 / How to Read This Report','thesis':'02 · 公司主张 / Company Thesis','timeline':'03 · 研究演化时间线 / Research Evolution Timeline','system':'04 · 系统架构 / System Architecture','data-engine':'05 · 数据引擎 / Data Engine','scaling-ladder':'06 · 百万小时扩展阶梯 / Million-Hour Scaling Ladder','stages':'07 · 三阶段证据链 / Three Evidence Stages','score':'08 · 20 → 28 → 45 → 53','wam':'09 · World-Action Model 深入解析 / World-Action Model Deep Dive','wam-vla':'10 · WAM vs VLA','bottle-cap':'11 · 瓶盖案例研究 / Bottle-Cap Case Study','cross-embodiment':'12 · 跨本体审计 / Cross-Embodiment Audit','infrastructure':'13 · 基础设施深挖 / Infrastructure Deep Dive','infra-metrics':'14 · 基础设施指标看板 / Infrastructure Numbers Dashboard','why-infra':'15 · 百万小时基础设施为何重要 / Why Million-Hour Infrastructure Matters','deployment':'16 · 部署台账 / Deployment Ledger','monster':'17 · Monster Laundry','autonomy':'18 · 24/7 自主运行审计 / 24/7 Autonomy Audit','marketing':'19 · 营销语言 vs 技术机制 / Marketing Language vs Technical Mechanism','task-discrepancy':'20 · 14 任务与 15 任务差异 / 14-task vs 15-task Source Discrepancy','safety':'21 · 安全与可靠性 / Safety and Reliability','business':'22 · 商业与融资 / Business and Funding','comparison':'23 · Sunday 与 Dyna / Sunday vs Dyna','high-risk':'24 · 高重要度 + 高验证风险 / High Importance + High Verification Risk','claims':'25 · Claim Explorer','questions':'26 · 研究问题 / Research Questions','reviewer':'27 · 审稿人视角 / If Dyna-2 Were a Conference Submission','glossary':'28 · 术语表 / Glossary','sources':'29 · 结构化来源 / Structured Sources','limits':'30 · 发布边界 / Publication Boundary'};
-const tocGroups=[['概览 / Overview',['cover','executive','how-read','thesis']],['核心系统 / Core System',['timeline','system','data-engine','scaling-ladder','stages','score','wam','wam-vla']],['证据与部署 / Evidence & Deployment',['bottle-cap','cross-embodiment','infrastructure','infra-metrics','why-infra','deployment','monster','autonomy','marketing','task-discrepancy','safety','business','comparison']],['附录 / Appendix',['high-risk','claims','questions','reviewer','glossary','sources','limits']]];
+const sectionTitles={'cover':'封面 / Cover','executive':'00 · 关键证据卡 / Executive Evidence Card','how-read':'01 · 如何阅读本报告 / How to Read This Report','thesis':'02 · 公司主张 / Company Thesis','chapter-core':'03-10 · Core technical stack / 核心技术主线','timeline':'03 · 研究演化时间线 / Research Evolution Timeline','system':'04 · 系统架构 / System Architecture','data-engine':'05 · 数据引擎 / Data Engine','scaling-ladder':'06 · 百万小时扩展阶梯 / Million-Hour Scaling Ladder','stages':'07 · 三阶段证据链 / Three Evidence Stages','score':'08 · 20 → 28 → 45 → 53','wam':'09 · World-Action Model 深入解析 / World-Action Model Deep Dive','wam-vla':'10 · WAM vs VLA','chapter-evidence':'11-15 · Evidence platform / 证据平台与基础设施','bottle-cap':'11 · 瓶盖案例研究 / Bottle-Cap Case Study','cross-embodiment':'12 · 跨本体审计 / Cross-Embodiment Audit','infrastructure':'13 · 基础设施深挖 / Infrastructure Deep Dive','infra-metrics':'14 · 基础设施指标看板 / Infrastructure Numbers Dashboard','why-infra':'15 · 百万小时基础设施为何重要 / Why Million-Hour Infrastructure Matters','chapter-deployment':'16-23 · Deployment and commercial audit / 部署与商业证据','deployment':'16 · 部署台账 / Deployment Ledger','monster':'17 · Monster Laundry','autonomy':'18 · 24/7 自主运行审计 / 24/7 Autonomy Audit','marketing':'19 · 营销语言 vs 技术机制 / Marketing Language vs Technical Mechanism','task-discrepancy':'20 · 14 任务与 15 任务差异 / 14-task vs 15-task Source Discrepancy','safety':'21 · 安全与可靠性 / Safety and Reliability','business':'22 · 商业与融资 / Business and Funding','comparison':'23 · Sunday 与 Dyna / Sunday vs Dyna','chapter-appendix':'24-30 · Appendix and reference tools / 附录与检索工具','high-risk':'24 · 高重要度 + 高验证风险 / High Importance + High Verification Risk','claims':'25 · Claim Explorer','questions':'26 · 研究问题 / Research Questions','reviewer':'27 · 审稿人视角 / If Dyna-2 Were a Conference Submission','glossary':'28 · 术语表 / Glossary','sources':'29 · 结构化来源 / Structured Sources','limits':'30 · 发布边界 / Publication Boundary'};
+const tocGroups=[['概览 / Overview',['cover','executive','how-read','thesis']],['核心章节 / Core Chapters',['chapter-core','chapter-evidence','chapter-deployment','chapter-appendix']]];
 const sections=$$('main>section[data-title]');
 sections.forEach(s=>{if(sectionTitles[s.id]){s.dataset.title=sectionTitles[s.id];const h2=s.querySelector('h2');if(h2)h2.textContent=sectionTitles[s.id];}});
 const toc=$('#toc');toc.insertAdjacentHTML('beforeend',tocGroups.map(([label,ids])=>`<div class="toc-group"><span>${esc(label)}</span>${ids.filter(id=>$('#'+id)).map(id=>`<a href="#${id}">${esc(sectionTitles[id]||$('#'+id).dataset.title||id)}</a>`).join('')}</div>`).join(''));
